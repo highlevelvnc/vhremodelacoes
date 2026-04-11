@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFAB } from "@/components/WhatsAppFAB";
+import { LoadingScreen } from "@/components/LoadingScreen";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-surface text-on-surface font-[var(--font-inter)]">
+        <LoadingScreen />
         <Navbar />
         <main>{children}</main>
         <Footer />
