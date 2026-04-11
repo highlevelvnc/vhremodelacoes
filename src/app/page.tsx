@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <>
       {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden noise-overlay">
         {/* Background image + dramatic gradient */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -59,6 +59,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-surface/10" />
           {/* Subtle radial accent */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,158,148,0.06)_0%,transparent_60%)]" />
+          {/* Aurora ambient blobs */}
+          <div className="aurora-blob aurora-blob-red w-[500px] h-[500px] -top-20 -right-40" />
+          <div className="aurora-blob aurora-blob-blue w-[600px] h-[600px] -bottom-32 -left-20" />
         </div>
 
         {/* Hero content with staggered animation */}
@@ -75,7 +78,7 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary" />
               </span>
-              Construção de Excelência em Portugal
+              Excelência em Construção desde 1995
             </span>
           </motion.div>
 
@@ -92,7 +95,7 @@ export default function Home() {
           {/* Subheading */}
           <motion.p
             variants={fadeUp}
-            className="text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-12 leading-[1.65]"
+            className="text-lg md:text-xl text-on-surface-variant max-w-xl mb-12 leading-[1.65]"
           >
             Especialistas em remodelações completas, pinturas e construção civil
             em toda Portugal. Elevamos espaços a obras de arte arquitetónicas.
@@ -142,9 +145,9 @@ export default function Home() {
       <section className="bg-surface-container-low py-24 relative border-t border-white/5 section-divider">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16">
           {[
-            { num: "30+", label: "Anos de Experiência" },
-            { num: "500+", label: "Obras Concluídas" },
-            { num: "100%", label: "Clientes Satisfeitos" },
+            { num: "30+", label: "Anos de Experiência", icon: "calendar_month" },
+            { num: "500+", label: "Obras Concluídas", icon: "task_alt" },
+            { num: "100%", label: "Clientes Satisfeitos", icon: "thumb_up" },
           ].map((s, i) => (
             <motion.div
               key={s.label}
@@ -152,22 +155,15 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-              className="flex items-start gap-6"
+              className="bento-card p-8"
             >
-              {/* Decorative icon circle */}
-              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center">
-                <span className="material-symbols-outlined text-secondary text-2xl">
-                  {statIcons[i]}
-                </span>
-              </div>
-              <div className="flex flex-col gap-1 border-l-4 border-secondary pl-6">
-                <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-primary leading-[1.1]">
-                  {s.num}
-                </span>
-                <span className="font-[var(--font-label)] text-sm uppercase tracking-widest text-on-surface-variant">
-                  {s.label}
-                </span>
-              </div>
+              <span className="material-symbols-outlined text-secondary/40 text-3xl mb-2">{s.icon}</span>
+              <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-primary leading-[1.1]">
+                {s.num}
+              </span>
+              <span className="font-[var(--font-label)] text-sm uppercase tracking-widest text-on-surface-variant mt-1">
+                {s.label}
+              </span>
             </motion.div>
           ))}
         </div>
@@ -189,7 +185,7 @@ export default function Home() {
                 variants={fadeUp}
                 className="font-[var(--font-manrope)] text-sm uppercase tracking-[0.3em] text-secondary font-bold mb-4"
               >
-                Especialidades
+                Os Nossos Serviços
               </motion.h2>
               <motion.p
                 variants={fadeUp}
@@ -212,7 +208,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
-                className="glow-card bg-surface-container-high p-10 rounded-lg group hover:bg-surface-container-highest transition-all duration-400 flex flex-col gap-6 relative"
+                className="glow-card bento-card p-10 group hover:bg-surface-container-highest transition-all duration-400 flex flex-col gap-6 relative"
               >
                 {/* Numbered badge */}
                 <span className="absolute top-6 right-6 font-[var(--font-manrope)] text-[11px] font-bold tracking-widest text-on-surface-variant/30">
@@ -220,10 +216,8 @@ export default function Home() {
                 </span>
 
                 {/* Icon with colored circle */}
-                <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors duration-300">
-                  <span className="material-symbols-outlined text-secondary text-2xl">
-                    {svc.icon}
-                  </span>
+                <div className="w-14 h-14 rounded-xl bg-secondary-container/15 flex items-center justify-center mb-2">
+                  <span className="material-symbols-outlined text-secondary text-2xl">{svc.icon}</span>
                 </div>
 
                 <h3 className="font-[var(--font-manrope)] text-2xl font-bold tracking-tight leading-[1.2]">
@@ -248,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════ GALLERY PREVIEW ═══════════════════════ */}
-      <section className="bg-surface-container-lowest py-32 overflow-hidden">
+      <section className="bg-surface-container-lowest py-32 overflow-hidden noise-overlay">
         <div className="max-w-7xl mx-auto px-8 mb-16 flex justify-between items-end">
           <motion.div
             initial="hidden"
@@ -260,7 +254,7 @@ export default function Home() {
               variants={fadeUp}
               className="font-[var(--font-manrope)] text-4xl md:text-5xl font-extrabold tracking-tighter leading-[1.15]"
             >
-              Obras Recentes
+              Portfólio de Obras
             </motion.h2>
           </motion.div>
           <Link
@@ -273,7 +267,7 @@ export default function Home() {
             </span>
           </Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
           {galleryImages.map((src, i) => (
             <motion.div
               key={src}
@@ -318,7 +312,7 @@ export default function Home() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeScale}
-            className="relative bg-surface-container-high rounded-xl overflow-hidden flex flex-col lg:flex-row"
+            className="relative bento-card overflow-hidden flex flex-col lg:flex-row"
           >
             {/* Decorative geometric pattern */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-[1]">
@@ -344,7 +338,7 @@ export default function Home() {
                 variants={fadeUp}
                 className="font-[var(--font-manrope)] text-sm uppercase tracking-widest text-secondary font-bold"
               >
-                Drogaria VH Sintra
+                A Nossa Loja em Sintra
               </motion.h2>
               <motion.h3
                 variants={fadeUp}
@@ -363,7 +357,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="riveted-btn px-10 py-5 rounded-lg text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-on-secondary inline-flex items-center gap-4"
                 >
-                  Ver Loja
+                  Explorar Drogaria
                   <span className="material-symbols-outlined">storefront</span>
                 </a>
               </motion.div>

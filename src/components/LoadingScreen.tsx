@@ -16,17 +16,17 @@ export function LoadingScreen() {
           return 100;
         }
         // Accelerating progress curve
-        const increment = prev < 60 ? 3 : prev < 85 ? 2 : 1;
+        const increment = prev < 50 ? 4 : prev < 80 ? 3 : 2;
         return Math.min(prev + increment, 100);
       });
-    }, 30);
+    }, 25);
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     if (progress === 100) {
-      const timer = setTimeout(() => setLoading(false), 400);
+      const timer = setTimeout(() => setLoading(false), 300);
       return () => clearTimeout(timer);
     }
   }, [progress]);
@@ -111,7 +111,7 @@ export function LoadingScreen() {
               </motion.div>
 
               {/* VH Monogram */}
-              <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary via-secondary-container to-secondary-container flex items-center justify-center shadow-2xl">
+              <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-secondary via-secondary-container to-secondary-container flex items-center justify-center shadow-2xl">
                 <span className="text-white font-[var(--font-manrope)] font-black text-3xl tracking-tighter">
                   VH
                 </span>
@@ -135,7 +135,7 @@ export function LoadingScreen() {
 
             {/* Progress bar */}
             <motion.div
-              className="w-48 flex flex-col items-center gap-3"
+              className="w-56 flex flex-col items-center gap-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}

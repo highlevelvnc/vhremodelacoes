@@ -83,7 +83,7 @@ export default function ServicosPage() {
   return (
     <>
       {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section className="relative h-[75vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[75vh] min-h-[600px] flex items-center justify-center overflow-hidden noise-overlay">
         <div className="absolute inset-0 z-0">
           <Image
             src="/servicos/servico-05.jpg"
@@ -175,7 +175,7 @@ export default function ServicosPage() {
                     alt={svc.title}
                     width={800}
                     height={500}
-                    className="w-full h-[500px] object-cover rounded-lg shadow-2xl group-hover:scale-[1.03] transition-transform duration-700"
+                    className="w-full h-[500px] object-cover rounded-lg shadow-2xl hover:scale-[1.02] transition-transform duration-700"
                   />
                   {/* Subtle overlay on hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-surface/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
@@ -197,7 +197,7 @@ export default function ServicosPage() {
                   <span className="font-[var(--font-manrope)] text-5xl font-black text-on-surface-variant/10 leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-[var(--font-label)] text-secondary font-bold tracking-[0.3em] uppercase text-xs">
+                  <span className="font-[var(--font-label)] text-secondary font-bold tracking-[0.2em] uppercase text-[11px]">
                     {svc.tag}
                   </span>
                 </motion.div>
@@ -219,9 +219,9 @@ export default function ServicosPage() {
                   href="https://wa.me/351936569642"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-fit riveted-btn text-on-secondary px-8 py-4 rounded-lg font-[var(--font-label)] font-bold uppercase tracking-widest hover:shadow-[0_8px_30px_rgba(164,2,19,0.4)] transition-all flex items-center gap-3"
+                  className="w-fit riveted-btn text-on-secondary px-8 py-4 rounded-lg font-[var(--font-label)] font-bold uppercase tracking-widest hover:shadow-[0_8px_30px_rgba(164,2,19,0.4)] transition-all flex items-center gap-2"
                 >
-                  <span className="material-symbols-outlined text-lg">chat</span>
+                  <span className="material-symbols-outlined text-base">chat</span>
                   Pedir Orçamento
                 </motion.a>
               </motion.div>
@@ -231,7 +231,7 @@ export default function ServicosPage() {
       })}
 
       {/* ═══════════════════════ TRUST STATS ═══════════════════════ */}
-      <section className="bg-surface-container-highest py-24 md:py-32 section-divider">
+      <section className="bg-surface-container-low noise-overlay py-24 md:py-32 section-divider">
         <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 text-center">
           {[
             { num: "30+", label: "Anos de Experiência", icon: "calendar_month" },

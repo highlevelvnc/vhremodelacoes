@@ -117,9 +117,7 @@ export default function GaleriaPage() {
           variants={fadeUp}
           className="text-lg text-on-surface-variant max-w-2xl leading-[1.7]"
         >
-          Explore a materialização da nossa visão arquitetónica. Da precisão
-          estrutural ao detalhe decorativo, cada projeto é um testemunho de
-          excelência técnica.
+          Da reabilitação de fachadas ao design de interiores — cada projeto é uma obra de arte.
         </motion.p>
       </motion.header>
 
@@ -134,7 +132,7 @@ export default function GaleriaPage() {
             }}
             className={`px-6 py-2.5 rounded-full font-[var(--font-label)] font-medium text-sm transition-all duration-300 whitespace-nowrap flex items-center gap-2 hover:scale-[1.03] ${
               active === cat
-                ? "bg-secondary text-on-secondary font-bold shadow-lg shadow-[0_4px_20px_rgba(138,1,16,0.25)]"
+                ? "bg-secondary text-on-secondary font-bold shadow-lg shadow-[0_4px_20px_rgba(138,1,16,0.25)] ring-1 ring-secondary/20"
                 : "bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest ghost-border"
             }`}
           >
@@ -169,7 +167,7 @@ export default function GaleriaPage() {
                 onClick={() => openLightbox(img)}
               >
                 <div
-                  className={`relative overflow-hidden rounded-xl bg-surface-container-high ${img.aspect}`}
+                  className={`relative overflow-hidden rounded-2xl bg-surface-container-high ${img.aspect}`}
                 >
                   {/* Featured ribbon */}
                   {isFeatured && (
@@ -215,7 +213,7 @@ export default function GaleriaPage() {
         <div className="mt-20 flex flex-col items-center gap-6">
           <button
             onClick={() => setVisibleCount((c) => c + 24)}
-            className="riveted-btn px-8 py-4 rounded-lg font-[var(--font-label)] font-bold text-on-secondary uppercase tracking-widest text-sm flex items-center gap-3 hover:shadow-[0_8px_30px_rgba(138,1,16,0.3)] transition-all"
+            className="riveted-btn text-on-secondary px-8 py-3 rounded-xl font-[var(--font-label)] font-bold uppercase tracking-widest text-sm flex items-center gap-3 hover:shadow-[0_8px_30px_rgba(138,1,16,0.3)] transition-all"
           >
             <span>Ver mais projetos</span>
             <span className="material-symbols-outlined text-lg">expand_more</span>
@@ -241,7 +239,7 @@ export default function GaleriaPage() {
             onClick={closeLightbox}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-surface/90 backdrop-blur-xl" />
+            <div className="absolute inset-0 bg-surface/80 backdrop-blur-2xl" />
 
             {/* Content */}
             <motion.div

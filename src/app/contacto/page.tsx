@@ -18,7 +18,7 @@ const fadeUp = {
 
 export default function ContactoPage() {
   return (
-    <div className="pt-32 pb-24">
+    <div className="pt-32 pb-24 noise-overlay">
       <div className="max-w-screen-2xl mx-auto px-8">
         {/* ═══════════════════════ HEADER ═══════════════════════ */}
         <motion.header
@@ -62,7 +62,7 @@ export default function ContactoPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="glow-card bg-surface-container-low p-12 rounded-xl flex flex-col justify-between group hover:bg-surface-container transition-colors duration-500 ghost-border"
+            className="glow-card bento-card p-12 rounded-xl flex flex-col justify-between group hover:bg-surface-container transition-colors duration-500 ghost-border"
           >
             <div>
               <div className="flex items-center gap-4 mb-8">
@@ -140,7 +140,7 @@ export default function ContactoPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="glow-card bg-surface-container p-12 rounded-xl flex flex-col justify-between group hover:bg-surface-container-high transition-colors duration-500 ghost-border"
+            className="glow-card bento-card p-12 rounded-xl flex flex-col justify-between group hover:bg-surface-container-high transition-colors duration-500 ghost-border"
           >
             <div>
               <div className="flex items-center gap-4 mb-8">
@@ -225,7 +225,7 @@ export default function ContactoPage() {
           >
             <section>
               <h3 className="font-[var(--font-manrope)] font-bold text-2xl mb-2 tracking-tighter">
-                Envie-nos uma mensagem
+                Fale Connosco
               </h3>
               <p className="text-on-surface-variant text-sm mb-8 leading-[1.65]">
                 Preencha o formulário e entraremos em contacto em breve.
@@ -237,7 +237,7 @@ export default function ContactoPage() {
                     Nome Completo
                   </label>
                   <input
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 placeholder:text-on-surface-variant/40"
+                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 placeholder:text-on-surface-variant/40"
                     placeholder="Seu nome"
                     type="text"
                   />
@@ -249,7 +249,7 @@ export default function ContactoPage() {
                     Email
                   </label>
                   <input
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 placeholder:text-on-surface-variant/40"
+                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 placeholder:text-on-surface-variant/40"
                     placeholder="email@exemplo.pt"
                     type="email"
                   />
@@ -260,7 +260,7 @@ export default function ContactoPage() {
                   <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
                     Assunto
                   </label>
-                  <select className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 appearance-none cursor-pointer">
+                  <select className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 appearance-none cursor-pointer">
                     <option>Orçamento de Obra</option>
                     <option>Pedido de Material (Drogaria)</option>
                     <option>Outros Assuntos</option>
@@ -273,7 +273,7 @@ export default function ContactoPage() {
                     Mensagem
                   </label>
                   <textarea
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-lg transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 resize-none placeholder:text-on-surface-variant/40"
+                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 resize-none placeholder:text-on-surface-variant/40"
                     placeholder="Como podemos ajudar?"
                     rows={5}
                   />
@@ -281,10 +281,10 @@ export default function ContactoPage() {
 
                 <button
                   type="submit"
-                  className="w-full riveted-btn py-4 text-on-secondary font-[var(--font-manrope)] font-bold uppercase tracking-widest text-sm rounded-lg hover:scale-[1.02] active:scale-[0.98] transition-transform flex items-center justify-center gap-3"
+                  className="w-full riveted-btn py-4 text-on-secondary font-[var(--font-manrope)] font-bold uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-transform flex items-center justify-center gap-2"
                 >
-                  <span className="material-symbols-outlined text-lg">send</span>
                   Enviar Pedido
+                  <span className="material-symbols-outlined text-base">send</span>
                 </button>
               </form>
             </section>
@@ -296,7 +296,7 @@ export default function ContactoPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-3 h-full min-h-[500px] relative rounded-xl overflow-hidden bg-surface-container-high ghost-border"
+            className="lg:col-span-3 h-full min-h-[500px] relative rounded-xl overflow-hidden bento-card"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12440.36!2d-9.38!3d38.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1ec5c4b4b3b3b3%3A0x0!2sSintra!5e0!3m2!1spt-PT!2spt!4v1"
