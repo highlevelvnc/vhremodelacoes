@@ -5,12 +5,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 const services = [
-  { icon: "home_repair_service", title: "Remodelacoes de Interiores", desc: "Transformacao completa de espacos residenciais e comerciais com foco em funcionalidade." },
-  { icon: "format_paint", title: "Pintura de Fachadas", desc: "Protecao e estetica para edificios com materiais de alta durabilidade e acabamento premium." },
-  { icon: "plumbing", title: "Canalizacao", desc: "Instalacao e manutencao de redes de aguas e esgotos com tecnologia de ponta." },
-  { icon: "electrical_services", title: "Eletricidade", desc: "Sistemas eletricos seguros, certificados e eficientes para todos os tipos de projetos." },
-  { icon: "roofing", title: "Telhados", desc: "Impermeabilizacao e reconstrucao de coberturas para maxima protecao termica e acustica." },
-  { icon: "architecture", title: "Construcao Civil", desc: "Execucao tecnica de obras de raiz com acompanhamento rigoroso de engenharia." },
+  { icon: "home_repair_service", title: "Remodelações de Interiores", desc: "Transformação completa de espaços residenciais e comerciais com foco em funcionalidade e conforto." },
+  { icon: "format_paint", title: "Pintura de Fachadas", desc: "Proteção e estética para edifícios com materiais de alta durabilidade e acabamento premium." },
+  { icon: "plumbing", title: "Canalização", desc: "Instalação e manutenção de redes de águas e esgotos com tecnologia de ponta." },
+  { icon: "electrical_services", title: "Eletricidade", desc: "Sistemas elétricos seguros, certificados e eficientes para todos os tipos de projetos." },
+  { icon: "roofing", title: "Telhados", desc: "Impermeabilização e reconstrução de coberturas para máxima proteção térmica e acústica." },
+  { icon: "architecture", title: "Construção Civil", desc: "Execução técnica de obras de raiz com acompanhamento rigoroso de engenharia." },
 ];
 
 const galleryImages = [
@@ -35,7 +35,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/fachadas/fachada-03.jpg"
-            alt="Obra de remodelacao VH"
+            alt="Obra de remodelação VH"
             fill
             className="object-cover opacity-40 grayscale-[0.2]"
             priority
@@ -49,13 +49,13 @@ export default function Home() {
           className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 text-center md:text-left"
         >
           <h1 className="font-[var(--font-manrope)] font-black text-5xl md:text-8xl leading-tight mb-8 max-w-5xl tracking-tighter text-on-surface">
-            Construimos o Seu{" "}
+            Construímos o Seu{" "}
             <span className="text-secondary">Futuro</span>, Remodelamos o Seu
             Presente
           </h1>
           <p className="text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
-            Especialistas em remodelacoes completas, pinturas e construcao civil
-            em toda Portugal. Elevamos espacos a obras de arte arquitetonicas.
+            Especialistas em remodelações completas, pinturas e construção civil
+            em toda Portugal. Elevamos espaços a obras de arte arquitetónicas.
           </p>
           <div className="flex flex-col sm:flex-row gap-6">
             <a
@@ -65,7 +65,7 @@ export default function Home() {
               className="riveted-btn px-8 py-4 rounded-lg text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-on-secondary flex items-center justify-center gap-3"
             >
               <span className="material-symbols-outlined">chat</span>
-              Orcamento via WhatsApp
+              Orçamento via WhatsApp
             </a>
             <Link
               href="/galeria"
@@ -81,8 +81,8 @@ export default function Home() {
       <section className="bg-surface-container-low py-20 relative border-t border-white/5">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
-            { num: "10+", label: "Anos de Experiencia" },
-            { num: "500+", label: "Obras Concluidas" },
+            { num: "10+", label: "Anos de Experiência" },
+            { num: "500+", label: "Obras Concluídas" },
             { num: "100%", label: "Clientes Satisfeitos" },
           ].map((s) => (
             <motion.div
@@ -112,11 +112,11 @@ export default function Home() {
                 Especialidades
               </h2>
               <p className="font-[var(--font-manrope)] text-4xl md:text-5xl font-extrabold text-on-surface tracking-tighter">
-                Solucoes Integradas de Engenharia e Design
+                Soluções Integradas de Engenharia e Design
               </p>
             </div>
             <div className="text-on-surface-variant">
-              Do rascunho a entrega da chave, cuidamos de cada detalhe com rigor tecnico.
+              Do rascunho à entrega da chave, cuidamos de cada detalhe com rigor técnico.
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -197,7 +197,7 @@ export default function Home() {
               </h3>
               <p className="text-xl text-on-surface-variant">
                 Ferramentas profissionais, tintas de alta gama e tudo para a sua
-                obra num so lugar.
+                obra num só lugar.
               </p>
               <div>
                 <a

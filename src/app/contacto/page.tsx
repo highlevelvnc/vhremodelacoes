@@ -20,7 +20,7 @@ export default function ContactoPage() {
 
         {/* Contact Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-outline-variant/10 rounded-xl overflow-hidden mb-24">
-          {/* Remodelacoes */}
+          {/* Remodelações */}
           <div className="bg-surface-container-low p-12 flex flex-col justify-between group hover:bg-surface-container transition-colors duration-500">
             <div>
               <div className="flex items-center gap-4 mb-6">
@@ -28,12 +28,12 @@ export default function ContactoPage() {
                   construction
                 </span>
                 <h2 className="font-[var(--font-manrope)] font-bold text-3xl tracking-tight">
-                  Remodelacoes &amp; Obras
+                  Remodelações &amp; Obras
                 </h2>
               </div>
               <p className="text-on-surface-variant text-lg mb-12 max-w-md">
-                Transformamos espacos com precisao arquitetonica. Desde
-                renovacoes totais a detalhes estruturais.
+                Transformamos espaços com precisão arquitetónica. Desde
+                renovações totais a detalhes estruturais.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
@@ -88,7 +88,7 @@ export default function ContactoPage() {
               </div>
               <p className="text-on-surface-variant text-lg mb-12 max-w-md">
                 O seu parceiro em ferragens, tintas e ferramentas profissionais
-                com o aconselhamento tecnico que precisa.
+                com o aconselhamento técnico que precisa.
               </p>
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
@@ -108,10 +108,10 @@ export default function ContactoPage() {
                   </span>
                   <div>
                     <p className="text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-1">
-                      Localizacao
+                      Localização
                     </p>
                     <p className="text-xl font-medium">
-                      Av. Dr. Alvaro de Vasconcelos 8, 2710-420 Sintra
+                      Av. Dr. Álvaro de Vasconcelos 8, 2710-420 Sintra
                     </p>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function ContactoPage() {
                     Assunto
                   </label>
                   <select className="w-full bg-surface-container-low border-none text-on-surface p-4 rounded transition-all focus:ring-2 focus:ring-primary focus:outline-none">
-                    <option>Orcamento de Obra</option>
+                    <option>Orçamento de Obra</option>
                     <option>Pedido de Material (Drogaria)</option>
                     <option>Outros Assuntos</option>
                   </select>
@@ -199,7 +199,7 @@ export default function ContactoPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Localizacao VH em Sintra"
+              title="Localização VH em Sintra"
             />
             <div className="absolute bottom-8 left-8 right-8 bg-surface-container-highest/90 backdrop-blur-md p-6 rounded-lg ghost-border">
               <div className="flex items-start gap-4">
@@ -211,7 +211,7 @@ export default function ContactoPage() {
                     Nossa Sede em Sintra
                   </p>
                   <p className="text-on-surface-variant text-xs leading-relaxed">
-                    Visite a nossa drogaria tecnica e showroom de remodelacoes.
+                    Visite a nossa drogaria técnica e showroom de remodelações.
                     Estacionamento gratuito para clientes.
                   </p>
                 </div>

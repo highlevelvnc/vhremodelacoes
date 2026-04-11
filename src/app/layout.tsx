@@ -18,12 +18,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VH Remodelacoes - Construcao Civil e Remodelacoes em Portugal",
+  title: "VH Remodelações - Construção Civil e Remodelações em Portugal",
   description:
-    "Especialistas em remodelacoes completas, pinturas, fachadas e construcao civil em toda Portugal. Orcamento gratis via WhatsApp.",
+    "Especialistas em remodelações completas, pinturas, fachadas e construção civil em toda Portugal. Orçamento grátis via WhatsApp.",
   keywords: [
-    "remodelacoes",
-    "construcao civil",
+    "remodelações",
+    "construção civil",
     "pinturas",
     "fachadas",
     "sintra",

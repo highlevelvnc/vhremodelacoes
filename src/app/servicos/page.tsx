@@ -5,51 +5,51 @@ import { motion } from "framer-motion";
 
 const services = [
   {
-    tag: "Excelencia Estrutural",
-    title: "Remodelacoes de Interiores",
-    desc: "Transformamos espacos obsoletos em ambientes contemporaneos de alta performance. Nossa equipa de especialistas foca-se na otimizacao da funcionalidade sem nunca abdicar da estetica premium. Desde cozinhas gourmet a salas de estar minimalistas, cada detalhe e planeado com rigor arquitetonico.",
+    tag: "Excelência Estrutural",
+    title: "Remodelações de Interiores",
+    desc: "Transformamos espaços obsoletos em ambientes contemporâneos de alta performance. Nossa equipa de especialistas foca-se na otimização da funcionalidade sem nunca abdicar da estética premium. Desde cozinhas gourmet a salas de estar minimalistas, cada detalhe é planeado com rigor arquitetónico.",
     image: "/servicos/servico-02.jpg",
   },
   {
-    tag: "Protecao & Estetica",
-    title: "Reabilitacao de Fachadas",
-    desc: "A pele de um edificio e o seu primeiro contacto com o mundo. Especializamo-nos no sistema ETICS (Capoto), limpeza tecnica de pedra e revestimentos ceramicos de alta durabilidade. Garantimos isolamento termico superior e uma valorizacao imediata do seu patrimonio imobiliario.",
+    tag: "Proteção & Estética",
+    title: "Reabilitação de Fachadas",
+    desc: "A pele de um edifício é o seu primeiro contacto com o mundo. Especializamo-nos no sistema ETICS (Capoto), limpeza técnica de pedra e revestimentos cerâmicos de alta durabilidade. Garantimos isolamento térmico superior e uma valorização imediata do seu património imobiliário.",
     image: "/fachadas/fachada-06.jpg",
   },
   {
     tag: "Integridade Superior",
-    title: "Coberturas e Impermeabilizacao",
-    desc: "Protegemos a sua estrutura contra as intemperies mais severas. Utilizamos membranas asfalticas de ultima geracao e sistemas de drenagem inteligente. Seja um telhado tradicional de ceramica ou uma cobertura plana moderna, a nossa execucao tecnica elimina qualquer risco de infiltracoes.",
+    title: "Coberturas e Impermeabilização",
+    desc: "Protegemos a sua estrutura contra as intempéries mais severas. Utilizamos membranas asfálticas de última geração e sistemas de drenagem inteligente. Seja um telhado tradicional de cerâmica ou uma cobertura plana moderna, a nossa execução técnica elimina qualquer risco de infiltrações.",
     image: "/servicos/servico-10.jpg",
   },
   {
-    tag: "Sistemas Hidraulicos",
-    title: "Canalizacao e Redes de Agua",
-    desc: "Engenharia invisivel mas vital. Projetamos e instalamos redes de aguas e esgotos com materiais de baixo ruido e alta resistencia a pressao. Desde a reparacao urgente a instalacao de sistemas solares termicos, a nossa equipa assegura fluxos eficientes e seguros.",
+    tag: "Sistemas Hidráulicos",
+    title: "Canalização e Redes de Água",
+    desc: "Engenharia invisível mas vital. Projetamos e instalamos redes de águas e esgotos com materiais de baixo ruído e alta resistência à pressão. Desde a reparação urgente à instalação de sistemas solares térmicos, a nossa equipa assegura fluxos eficientes e seguros.",
     image: "/servicos/servico-15.jpg",
   },
   {
     tag: "Energia Inteligente",
-    title: "Instalacoes Eletricas e Domotica",
-    desc: "Preparamos o seu imovel para o futuro. Implementamos redes eletricas certificadas e sistemas de automacao residencial que permitem controlar iluminacao, climatizacao e seguranca a partir do seu smartphone. Eficiencia energetica e o nosso pilar central.",
+    title: "Instalações Elétricas e Domótica",
+    desc: "Preparamos o seu imóvel para o futuro. Implementamos redes elétricas certificadas e sistemas de automação residencial que permitem controlar iluminação, climatização e segurança a partir do seu smartphone. Eficiência energética é o nosso pilar central.",
     image: "/servicos/servico-20.jpg",
   },
   {
     tag: "Acabamentos Nobres",
-    title: "Pinturas Tecnicas e Decorativas",
-    desc: "A perfeicao esta no detalhe final. Trabalhamos com tintas premium, estuques venezianos e revestimentos texturizados de luxo. A nossa tecnica de aplicacao garante superficies impecaveis, resistentes ao desgaste e com uma profundidade cromatica inigualavel.",
+    title: "Pinturas Técnicas e Decorativas",
+    desc: "A perfeição está no detalhe final. Trabalhamos com tintas premium, estuques venezianos e revestimentos texturizados de luxo. A nossa técnica de aplicação garante superfícies impecáveis, resistentes ao desgaste e com uma profundidade cromática inigualável.",
     image: "/servicos/servico-25.jpg",
   },
   {
     tag: "Base de Estilo",
     title: "Pavimentos e Revestimentos",
-    desc: "Do soalho flutuante de madeira nobre aos ceramicos de grande formato, oferecemos solucoes que unem durabilidade e sofisticacao. Aplicamos tecnicas de nivelamento avancadas para garantir uma fundacao perfeita e uma continuidade visual absoluta entre divisoes.",
+    desc: "Do soalho flutuante de madeira nobre aos cerâmicos de grande formato, oferecemos soluções que unem durabilidade e sofisticação. Aplicamos técnicas de nivelamento avançadas para garantir uma fundação perfeita e uma continuidade visual absoluta entre divisões.",
     image: "/servicos/servico-30.jpg",
   },
   {
     tag: "Materiais de Elite",
     title: "Drogaria VH e Suprimentos",
-    desc: "Mais do que uma loja, somos o seu parceiro de confianca na selecao de materiais. A Drogaria VH disponibiliza ferramentas profissionais, produtos quimicos de construcao de topo e consultoria tecnica personalizada para garantir que o seu projeto utiliza apenas o melhor do mercado.",
+    desc: "Mais do que uma loja, somos o seu parceiro de confiança na seleção de materiais. A Drogaria VH disponibiliza ferramentas profissionais, produtos químicos de construção de topo e consultoria técnica personalizada para garantir que o seu projeto utiliza apenas o melhor do mercado.",
     image: "/drogaria/drogaria-loja.jpg",
   },
 ];
@@ -62,7 +62,7 @@ export default function ServicosPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/servicos/servico-05.jpg"
-            alt="Servicos VH"
+            alt="Serviços VH"
             fill
             className="object-cover brightness-[0.4]"
             priority
@@ -75,11 +75,11 @@ export default function ServicosPage() {
           className="relative z-10 text-center px-6 max-w-4xl"
         >
           <h1 className="font-[var(--font-manrope)] text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6">
-            Nossos Servicos Especializados
+            Nossos Serviços Especializados
           </h1>
           <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-            Elevamos a construcao civil a um novo patamar de excelencia,
-            combinando precisao tecnica com uma visao arquitetonica moderna e
+            Elevamos a construção civil a um novo patamar de excelência,
+            combinando precisão técnica com uma visão arquitetónica moderna e
             duradoura.
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ export default function ServicosPage() {
                   rel="noopener noreferrer"
                   className="w-fit riveted-btn text-on-secondary px-8 py-4 rounded-lg font-[var(--font-label)] font-bold uppercase tracking-widest hover:shadow-[0_8px_30px_rgba(164,2,19,0.4)] transition-all"
                 >
-                  Pedir Orcamento
+                  Pedir Orçamento
                 </a>
               </motion.div>
             </div>
@@ -146,10 +146,10 @@ export default function ServicosPage() {
       <section className="bg-surface-container-highest py-20">
         <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
           {[
-            { num: "15+", label: "Anos de Experiencia" },
-            { num: "500+", label: "Projetos Concluidos" },
+            { num: "15+", label: "Anos de Experiência" },
+            { num: "500+", label: "Projetos Concluídos" },
             { num: "100%", label: "Garantia de Qualidade" },
-            { num: "24/7", label: "Suporte Tecnico" },
+            { num: "24/7", label: "Suporte Técnico" },
           ].map((s) => (
             <div key={s.label} className="flex flex-col gap-2">
               <span className="font-[var(--font-manrope)] text-5xl font-bold text-primary">

@@ -3,9 +3,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-type Category = "Todos" | "Fachadas" | "Construcao" | "Interiores" | "Servicos";
+type Category = "Todos" | "Fachadas" | "Construção" | "Interiores" | "Serviços";
 
-const categories: Category[] = ["Todos", "Fachadas", "Construcao", "Interiores", "Servicos"];
+const categories: Category[] = ["Todos", "Fachadas", "Construção", "Interiores", "Serviços"];
 
 function generateImages() {
   const items: { src: string; cat: Category; aspect: string }[] = [];
@@ -21,7 +21,7 @@ function generateImages() {
   for (let i = 1; i <= 9; i++) {
     items.push({
       src: `/construcao/construcao-${String(i).padStart(2, "0")}.jpg`,
-      cat: "Construcao",
+      cat: "Construção",
       aspect: aspects[(i + 2) % aspects.length],
     });
   }
@@ -35,7 +35,7 @@ function generateImages() {
   for (let i = 1; i <= 20; i++) {
     items.push({
       src: `/servicos/servico-${String(i).padStart(2, "0")}.jpg`,
-      cat: "Servicos",
+      cat: "Serviços",
       aspect: aspects[(i + 3) % aspects.length],
     });
   }
@@ -60,12 +60,12 @@ export default function GaleriaPage() {
           animate={{ opacity: 1, y: 0 }}
           className="font-[var(--font-manrope)] text-5xl md:text-7xl font-extrabold text-on-surface mb-6 tracking-tighter max-w-4xl"
         >
-          Nosso Portfolio de Obra
+          Nosso Portfólio de Obra
         </motion.h1>
         <p className="text-lg text-on-surface-variant max-w-2xl leading-relaxed">
-          Explore a materializacao da nossa visao arquitetonica. Da precisao
-          estrutural ao detalhe decorativo, cada projeto e um testemunho de
-          excelencia tecnica.
+          Explore a materialização da nossa visão arquitetónica. Da precisão
+          estrutural ao detalhe decorativo, cada projeto é um testemunho de
+          excelência técnica.
         </p>
       </header>
 

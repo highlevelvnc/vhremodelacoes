@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const links = [
-  { href: "/", label: "Remodelacoes" },
-  { href: "/servicos", label: "Servicos" },
+  { href: "/", label: "Remodelações" },
+  { href: "/servicos", label: "Serviços" },
   { href: "/galeria", label: "Projetos" },
   { href: "/contacto", label: "Contacto" },
 ];
@@ -22,7 +22,7 @@ export function Navbar() {
           href="/"
           className="text-2xl font-black text-on-surface tracking-tighter font-[var(--font-manrope)]"
         >
-          Vinculos Harmoniosos
+          Vínculos Harmoniosos
         </Link>
 
         {/* Desktop */}
@@ -52,7 +52,7 @@ export function Navbar() {
             rel="noopener noreferrer"
             className="hidden lg:flex riveted-btn text-on-secondary px-6 py-2 rounded-lg font-[var(--font-label)] font-bold uppercase tracking-wider text-sm"
           >
-            Orcamento
+            Orçamento
           </a>
           <button
             className="md:hidden text-primary p-2"
@@ -85,7 +85,7 @@ export function Navbar() {
             rel="noopener noreferrer"
             className="riveted-btn text-on-secondary px-6 py-3 rounded-lg font-bold uppercase tracking-wider text-sm text-center"
           >
-            Orcamento via WhatsApp
+            Orçamento via WhatsApp
           </a>
         </div>
       )}
