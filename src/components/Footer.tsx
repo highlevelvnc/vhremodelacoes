@@ -44,7 +44,7 @@ export function Footer() {
           {/* Brand column */}
           <motion.div className="flex flex-col gap-6" variants={columnVariants}>
             <div className="text-xl font-bold text-primary uppercase tracking-widest font-[var(--font-manrope)]">
-              Vínculos Harmoniosos
+              VH Remodelações
             </div>
             <p className="text-on-surface/50 text-sm leading-relaxed">
               Referência em construção civil e remodelações em Portugal. Qualidade
@@ -160,7 +160,7 @@ export function Footer() {
           }}
         >
           <span className="text-on-surface/40 text-sm">
-            &copy; 2025 Vínculos Harmoniosos - Construção &amp; Drogaria. Todos os
+            &copy; 2025 VH Remodelações - Construção &amp; Drogaria. Todos os
             direitos reservados.
           </span>
           <span className="text-secondary/80 font-semibold text-sm">

@@ -42,7 +42,7 @@ export function Navbar() {
           href="/"
           className="text-2xl font-black text-on-surface tracking-tighter font-[var(--font-manrope)] transition-transform duration-300 hover:scale-[1.03] origin-left"
         >
-          Vínculos Harmoniosos
+          VH Remodelações
         </Link>
 
         {/* Desktop */}
