@@ -32,41 +32,136 @@
   --radius-full: 0.75rem;
 }
 
+/* Smoother scroll & text rendering */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Better body defaults */
 body {
   background: var(--color-surface);
   color: var(--color-on-surface);
   font-family: var(--font-body);
+  line-height: 1.6;
 }
 
+/* Refined selection */
 ::selection {
-  background: var(--color-secondary-container);
-  color: white;
+  background: rgba(138, 1, 16, 0.3);
+  color: #ffffff;
 }
 
+/* Upgraded riveted-btn with active state and shimmer overlay */
 .riveted-btn {
   background: linear-gradient(135deg, #ff9e94 0%, #c4132a 50%, #8a0110 100%);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.riveted-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 .riveted-btn:hover {
-  box-shadow: 0 0 30px rgba(138, 1, 16, 0.5), 0 0 60px rgba(196, 19, 42, 0.15);
+  box-shadow: 0 4px 30px rgba(138, 1, 16, 0.4), 0 0 80px rgba(196, 19, 42, 0.12);
   transform: translateY(-2px);
 }
-
-.ghost-border {
-  border: 1px solid rgba(68, 71, 77, 0.15);
+.riveted-btn:hover::before {
+  opacity: 1;
+}
+.riveted-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 15px rgba(138, 1, 16, 0.3);
 }
 
+/* Better ghost-border with subtle glow on hover */
+.ghost-border {
+  border: 1px solid rgba(185, 199, 228, 0.08);
+  transition: border-color 0.3s ease;
+}
+.ghost-border:hover {
+  border-color: rgba(185, 199, 228, 0.15);
+}
+
+/* Refined glass nav */
 .glass-nav {
-  background: rgba(4, 19, 41, 0.65);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  background: rgba(4, 19, 41, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(185, 199, 228, 0.06);
 }
 
+/* Section divider utility */
+.section-divider {
+  position: relative;
+}
+.section-divider::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(185, 199, 228, 0.08), transparent);
+}
+
+/* Glow card effect */
+.glow-card {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glow-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 158, 148, 0.1), transparent, rgba(185, 199, 228, 0.05));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+.glow-card:hover::before {
+  opacity: 1;
+}
+.glow-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(1, 14, 36, 0.5);
+}
+
+/* Text gradient utility */
+.text-gradient {
+  background: linear-gradient(135deg, #dce8ff 0%, #ff9e94 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle animated underline for links */
+.animated-underline {
+  position: relative;
+}
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff9e94, #c4132a);
+  transition: width 0.3s ease;
+}
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+/* Masonry grid (remodelacoes only) */
 .masonry-grid {
   column-count: 1;
   column-gap: 1.5rem;

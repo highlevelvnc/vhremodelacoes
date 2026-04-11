@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 const services = [
   {
@@ -54,51 +56,117 @@ const services = [
   },
 ];
 
+/* --- Animation variants --- */
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
+};
+
 export default function ServicosPage() {
+  const [showFloatingCta, setShowFloatingCta] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowFloatingCta(window.scrollY > 600);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
-      {/* Hero */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+      {/* ═══════════════════════ HERO ═══════════════════════ */}
+      <section className="relative h-[75vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/servicos/servico-05.jpg"
             alt="Serviços VH"
             fill
-            className="object-cover brightness-[0.4]"
+            className="object-cover brightness-[0.35]"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-surface/10" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(255,158,148,0.06)_0%,transparent_60%)]" />
         </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="relative z-10 text-center px-6 max-w-4xl"
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="relative z-10 text-center px-8 max-w-5xl"
         >
-          <h1 className="font-[var(--font-manrope)] text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6">
+          {/* Breadcrumb */}
+          <motion.div variants={fadeUp} className="mb-8">
+            <nav className="inline-flex items-center gap-2 text-sm text-on-surface-variant/60 font-[var(--font-label)]">
+              <Link href="/" className="hover:text-on-surface-variant transition-colors duration-200">
+                Início
+              </Link>
+              <span className="material-symbols-outlined text-xs">chevron_right</span>
+              <span className="text-secondary">Serviços</span>
+            </nav>
+          </motion.div>
+
+          <motion.h1
+            variants={fadeUp}
+            className="font-[var(--font-manrope)] text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-on-surface mb-8 leading-[1.05]"
+          >
             Nossos Serviços Especializados
-          </h1>
-          <p className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p
+            variants={fadeUp}
+            className="text-lg md:text-xl text-on-surface-variant max-w-2xl mx-auto leading-[1.7]"
+          >
             Elevamos a construção civil a um novo patamar de excelência,
             combinando precisão técnica com uma visão arquitetónica moderna e
             duradoura.
-          </p>
+          </motion.p>
+
+          {/* Scroll indicator */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-16 flex justify-center"
+          >
+            <motion.span
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="material-symbols-outlined text-on-surface-variant/40 text-2xl"
+            >
+              keyboard_arrow_down
+            </motion.span>
+          </motion.div>
         </motion.div>
       </section>
 
-      {/* Services alternating */}
+      {/* ═══════════════════════ SERVICES ALTERNATING ═══════════════════════ */}
       {services.map((svc, i) => {
         const isEven = i % 2 === 0;
         return (
           <section
             key={svc.title}
-            className={`py-24 md:py-32 ${isEven ? "bg-surface-container-low" : "bg-surface"}`}
+            className={`py-24 md:py-32 ${isEven ? "bg-surface-container-low" : "bg-surface"} relative`}
           >
-            <div className="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            {/* Decorative line connector */}
+            {i > 0 && (
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="w-px h-16 bg-gradient-to-b from-transparent via-secondary/30 to-transparent" />
+                <div className="w-3 h-3 rounded-full border-2 border-secondary/30 bg-surface absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2" />
+              </div>
+            )}
+
+            <div className="max-w-screen-2xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
               {/* Image */}
               <motion.div
                 initial={{ opacity: 0, x: isEven ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
                 className={`relative group ${!isEven ? "order-1 md:order-2" : ""}`}
               >
                 <div className="relative overflow-hidden rounded-lg">
@@ -107,61 +175,111 @@ export default function ServicosPage() {
                     alt={svc.title}
                     width={800}
                     height={500}
-                    className="w-full h-[500px] object-cover rounded-lg shadow-2xl"
+                    className="w-full h-[500px] object-cover rounded-lg shadow-2xl group-hover:scale-[1.03] transition-transform duration-700"
                   />
+                  {/* Subtle overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
                 </div>
+                {/* Decorative corner accent */}
+                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-r-2 border-b-2 border-secondary/20 rounded-br-lg pointer-events-none" />
               </motion.div>
 
               {/* Text */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
+                variants={staggerContainer}
                 className={`flex flex-col gap-6 ${!isEven ? "order-2 md:order-1" : ""}`}
               >
-                <span className="font-[var(--font-label)] text-secondary font-bold tracking-[0.3em] uppercase">
-                  {svc.tag}
-                </span>
-                <h2 className="font-[var(--font-manrope)] text-4xl font-bold tracking-tight text-primary">
+                {/* Number + tag */}
+                <motion.div variants={fadeUp} className="flex items-center gap-4">
+                  <span className="font-[var(--font-manrope)] text-5xl font-black text-on-surface-variant/10 leading-none">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-[var(--font-label)] text-secondary font-bold tracking-[0.3em] uppercase text-xs">
+                    {svc.tag}
+                  </span>
+                </motion.div>
+
+                <motion.h2
+                  variants={fadeUp}
+                  className="font-[var(--font-manrope)] text-4xl md:text-5xl font-bold tracking-tighter text-primary leading-[1.15]"
+                >
                   {svc.title}
-                </h2>
-                <p className="text-on-surface-variant text-lg leading-relaxed">
+                </motion.h2>
+                <motion.p
+                  variants={fadeUp}
+                  className="text-on-surface-variant text-lg leading-[1.7]"
+                >
                   {svc.desc}
-                </p>
-                <a
+                </motion.p>
+                <motion.a
+                  variants={fadeUp}
                   href="https://wa.me/351936569642"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-fit riveted-btn text-on-secondary px-8 py-4 rounded-lg font-[var(--font-label)] font-bold uppercase tracking-widest hover:shadow-[0_8px_30px_rgba(164,2,19,0.4)] transition-all"
+                  className="w-fit riveted-btn text-on-secondary px-8 py-4 rounded-lg font-[var(--font-label)] font-bold uppercase tracking-widest hover:shadow-[0_8px_30px_rgba(164,2,19,0.4)] transition-all flex items-center gap-3"
                 >
+                  <span className="material-symbols-outlined text-lg">chat</span>
                   Pedir Orçamento
-                </a>
+                </motion.a>
               </motion.div>
             </div>
           </section>
         );
       })}
 
-      {/* Trust Stats */}
-      <section className="bg-surface-container-highest py-20">
-        <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+      {/* ═══════════════════════ TRUST STATS ═══════════════════════ */}
+      <section className="bg-surface-container-highest py-24 md:py-32 section-divider">
+        <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 text-center">
           {[
-            { num: "15+", label: "Anos de Experiência" },
-            { num: "500+", label: "Projetos Concluídos" },
-            { num: "100%", label: "Garantia de Qualidade" },
-            { num: "24/7", label: "Suporte Técnico" },
-          ].map((s) => (
-            <div key={s.label} className="flex flex-col gap-2">
-              <span className="font-[var(--font-manrope)] text-5xl font-bold text-primary">
+            { num: "15+", label: "Anos de Experiência", icon: "calendar_month" },
+            { num: "500+", label: "Projetos Concluídos", icon: "task_alt" },
+            { num: "100%", label: "Garantia de Qualidade", icon: "verified" },
+            { num: "24/7", label: "Suporte Técnico", icon: "headset_mic" },
+          ].map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+              className="flex flex-col items-center gap-4"
+            >
+              <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-2">
+                <span className="material-symbols-outlined text-secondary text-xl">
+                  {s.icon}
+                </span>
+              </div>
+              <span className="font-[var(--font-manrope)] text-5xl md:text-7xl font-black text-primary leading-[1.1]">
                 {s.num}
               </span>
               <span className="font-[var(--font-label)] text-xs text-on-surface-variant uppercase tracking-widest">
                 {s.label}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
+
+      {/* ═══════════════════════ FLOATING CTA ═══════════════════════ */}
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        animate={showFloatingCta ? { y: 0, opacity: 1 } : { y: 100, opacity: 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
+        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:hidden"
+      >
+        <a
+          href="https://wa.me/351936569642"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="riveted-btn px-6 py-3.5 rounded-full text-sm font-bold font-[var(--font-label)] uppercase tracking-widest text-on-secondary flex items-center gap-3 shadow-[0_8px_30px_rgba(138,1,16,0.5)]"
+        >
+          <span className="material-symbols-outlined text-lg">chat</span>
+          Pedir Orçamento
+        </a>
+      </motion.div>
     </>
   );
 }

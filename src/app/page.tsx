@@ -22,16 +22,32 @@ const galleryImages = [
   "/interiores/interior-05.jpg",
 ];
 
+/* --- Animation variants --- */
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
+};
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } },
 };
+
+const fadeScale = {
+  hidden: { opacity: 0, scale: 0.92 },
+  visible: { opacity: 1, scale: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const } },
+};
+
+const statIcons = ["engineering", "task_alt", "sentiment_very_satisfied"];
 
 export default function Home() {
   return (
     <>
-      {/* Hero */}
+      {/* ═══════════════════════ HERO ═══════════════════════ */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        {/* Background image + dramatic gradient */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/fachadas/fachada-03.jpg"
@@ -40,24 +56,50 @@ export default function Home() {
             className="object-cover opacity-40 grayscale-[0.2]"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-surface/20" />
+          {/* Subtle radial accent */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,158,148,0.06)_0%,transparent_60%)]" />
         </div>
+
+        {/* Hero content with staggered animation */}
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          variants={staggerContainer}
           className="relative z-10 w-full max-w-7xl mx-auto px-8 py-24 text-center md:text-left"
         >
-          <h1 className="font-[var(--font-manrope)] font-black text-5xl md:text-8xl leading-tight mb-8 max-w-5xl tracking-tighter text-on-surface">
+          {/* Animated badge */}
+          <motion.div variants={fadeUp} className="mb-8">
+            <span className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-surface-container-high/60 backdrop-blur-sm ghost-border text-sm font-[var(--font-label)] tracking-widest uppercase text-on-surface-variant">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary" />
+              </span>
+              Construção de Excelência em Portugal
+            </span>
+          </motion.div>
+
+          {/* Heading */}
+          <motion.h1
+            variants={fadeUp}
+            className="font-[var(--font-manrope)] font-black text-5xl md:text-8xl leading-[1.05] mb-8 max-w-5xl tracking-tighter text-on-surface"
+          >
             Construímos o Seu{" "}
-            <span className="text-secondary">Futuro</span>, Remodelamos o Seu
+            <span className="text-gradient">Futuro</span>, Remodelamos o Seu
             Presente
-          </h1>
-          <p className="text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
+          </motion.h1>
+
+          {/* Subheading */}
+          <motion.p
+            variants={fadeUp}
+            className="text-xl md:text-2xl text-on-surface-variant max-w-2xl mb-12 leading-[1.65]"
+          >
             Especialistas em remodelações completas, pinturas e construção civil
             em toda Portugal. Elevamos espaços a obras de arte arquitetónicas.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6">
+          </motion.p>
+
+          {/* CTA buttons */}
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-6">
             <a
               href="https://wa.me/351936569642"
               target="_blank"
@@ -69,81 +111,135 @@ export default function Home() {
             </a>
             <Link
               href="/galeria"
-              className="ghost-border px-8 py-4 rounded-lg text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-primary flex items-center justify-center gap-3 bg-surface-container-high/30 backdrop-blur-sm hover:bg-surface-container-high transition-all"
+              className="ghost-border px-8 py-4 rounded-lg text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-primary flex items-center justify-center gap-3 bg-surface-container-high/30 backdrop-blur-sm hover:bg-surface-container-high/60 hover:scale-[1.02] transition-all duration-300"
             >
               Nossos Projetos
             </Link>
-          </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        >
+          <span className="text-[10px] font-[var(--font-label)] uppercase tracking-[0.3em] text-on-surface-variant/60">
+            Scroll
+          </span>
+          <motion.span
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="material-symbols-outlined text-on-surface-variant/40 text-xl"
+          >
+            keyboard_arrow_down
+          </motion.span>
         </motion.div>
       </section>
 
-      {/* Stats */}
-      <section className="bg-surface-container-low py-20 relative border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
+      {/* ═══════════════════════ STATS ═══════════════════════ */}
+      <section className="bg-surface-container-low py-24 relative border-t border-white/5 section-divider">
+        <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16">
           {[
             { num: "10+", label: "Anos de Experiência" },
             { num: "500+", label: "Obras Concluídas" },
             { num: "100%", label: "Clientes Satisfeitos" },
-          ].map((s) => (
+          ].map((s, i) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex flex-col gap-2 border-l-4 border-secondary pl-8"
+              transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+              className="flex items-start gap-6"
             >
-              <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-primary">
-                {s.num}
-              </span>
-              <span className="font-[var(--font-label)] text-sm uppercase tracking-widest text-on-surface-variant">
-                {s.label}
-              </span>
+              {/* Decorative icon circle */}
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center">
+                <span className="material-symbols-outlined text-secondary text-2xl">
+                  {statIcons[i]}
+                </span>
+              </div>
+              <div className="flex flex-col gap-1 border-l-4 border-secondary pl-6">
+                <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-primary leading-[1.1]">
+                  {s.num}
+                </span>
+                <span className="font-[var(--font-label)] text-sm uppercase tracking-widest text-on-surface-variant">
+                  {s.label}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>
       </section>
 
-      {/* Services */}
+      {/* ═══════════════════════ SERVICES ═══════════════════════ */}
       <section className="py-32 bg-surface">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          {/* Section header */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8"
+          >
             <div className="max-w-2xl">
-              <h2 className="font-[var(--font-manrope)] text-sm uppercase tracking-[0.3em] text-secondary font-bold mb-4">
+              <motion.h2
+                variants={fadeUp}
+                className="font-[var(--font-manrope)] text-sm uppercase tracking-[0.3em] text-secondary font-bold mb-4"
+              >
                 Especialidades
-              </h2>
-              <p className="font-[var(--font-manrope)] text-4xl md:text-5xl font-extrabold text-on-surface tracking-tighter">
+              </motion.h2>
+              <motion.p
+                variants={fadeUp}
+                className="font-[var(--font-manrope)] text-4xl md:text-5xl font-extrabold text-on-surface tracking-tighter leading-[1.15]"
+              >
                 Soluções Integradas de Engenharia e Design
-              </p>
+              </motion.p>
             </div>
-            <div className="text-on-surface-variant">
+            <motion.div variants={fadeUp} className="text-on-surface-variant leading-[1.65] max-w-sm">
               Do rascunho à entrega da chave, cuidamos de cada detalhe com rigor técnico.
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Service cards grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((svc, i) => (
               <motion.div
                 key={svc.title}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-surface-container-high p-10 rounded-lg group hover:bg-surface-container-highest transition-all duration-300 flex flex-col gap-6"
+                transition={{ delay: i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                className="glow-card bg-surface-container-high p-10 rounded-lg group hover:bg-surface-container-highest transition-all duration-400 flex flex-col gap-6 relative"
               >
-                <span className="material-symbols-outlined text-secondary text-4xl">
-                  {svc.icon}
+                {/* Numbered badge */}
+                <span className="absolute top-6 right-6 font-[var(--font-manrope)] text-[11px] font-bold tracking-widest text-on-surface-variant/30">
+                  {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-[var(--font-manrope)] text-2xl font-bold">
+
+                {/* Icon with colored circle */}
+                <div className="w-14 h-14 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors duration-300">
+                  <span className="material-symbols-outlined text-secondary text-2xl">
+                    {svc.icon}
+                  </span>
+                </div>
+
+                <h3 className="font-[var(--font-manrope)] text-2xl font-bold tracking-tight leading-[1.2]">
                   {svc.title}
                 </h3>
-                <p className="text-on-surface-variant leading-relaxed">
+                <p className="text-on-surface-variant leading-[1.65]">
                   {svc.desc}
                 </p>
                 <Link
                   href="/servicos"
-                  className="mt-auto flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all"
+                  className="mt-auto flex items-center gap-2 text-primary font-bold group-hover:gap-4 transition-all duration-300 animated-underline w-fit"
                 >
                   Saber Mais{" "}
-                  <span className="material-symbols-outlined">arrow_forward</span>
+                  <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform duration-300">
+                    arrow_forward
+                  </span>
                 </Link>
               </motion.div>
             ))}
@@ -151,55 +247,115 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Preview */}
+      {/* ═══════════════════════ GALLERY PREVIEW ═══════════════════════ */}
       <section className="bg-surface-container-lowest py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 mb-16 flex justify-between items-end">
-          <h2 className="font-[var(--font-manrope)] text-4xl md:text-5xl font-extrabold tracking-tighter">
-            Obras Recentes
-          </h2>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="font-[var(--font-manrope)] text-4xl md:text-5xl font-extrabold tracking-tighter leading-[1.15]"
+            >
+              Obras Recentes
+            </motion.h2>
+          </motion.div>
           <Link
             href="/galeria"
-            className="text-secondary font-bold hover:underline hidden md:block"
+            className="text-secondary font-bold hidden md:flex items-center gap-2 group animated-underline"
           >
-            Ver Todas &rarr;
+            Ver Todas{" "}
+            <span className="material-symbols-outlined text-lg group-hover:translate-x-1 transition-transform duration-300">
+              arrow_forward
+            </span>
           </Link>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2">
           {galleryImages.map((src, i) => (
             <motion.div
               key={src}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className={`aspect-[3/4] bg-surface-container overflow-hidden ${i === 2 ? "lg:mt-12" : i === 4 ? "lg:mt-8" : ""}`}
+              transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+              className={`aspect-[3/4] bg-surface-container overflow-hidden relative group cursor-pointer ${i === 2 ? "lg:mt-12" : i === 4 ? "lg:mt-8" : ""}`}
             >
               <img
                 src={src}
                 alt={`Obra VH ${i + 1}`}
-                className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
+              {/* Hover overlay with zoom icon */}
+              <div className="absolute inset-0 bg-surface/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span className="material-symbols-outlined text-on-surface text-3xl scale-75 group-hover:scale-100 transition-transform duration-300">
+                  zoom_in
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>
+        {/* Mobile "Ver Todas" link */}
+        <div className="md:hidden mt-8 px-8">
+          <Link
+            href="/galeria"
+            className="text-secondary font-bold flex items-center gap-2 animated-underline w-fit"
+          >
+            Ver Todas{" "}
+            <span className="material-symbols-outlined text-lg">arrow_forward</span>
+          </Link>
+        </div>
       </section>
 
-      {/* Drogaria Banner */}
-      <section className="py-32 bg-surface">
+      {/* ═══════════════════════ DROGARIA BANNER ═══════════════════════ */}
+      <section className="py-32 bg-surface relative">
         <div className="max-w-7xl mx-auto px-8">
-          <div className="relative bg-surface-container-high rounded-xl overflow-hidden flex flex-col lg:flex-row">
-            <div className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center gap-8">
-              <h2 className="font-[var(--font-manrope)] text-sm uppercase tracking-widest text-secondary font-bold">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeScale}
+            className="relative bg-surface-container-high rounded-xl overflow-hidden flex flex-col lg:flex-row"
+          >
+            {/* Decorative geometric pattern */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-[1]">
+              <div className="absolute -top-24 -left-24 w-48 h-48 border border-secondary/10 rounded-full" />
+              <div className="absolute -top-12 -left-12 w-48 h-48 border border-secondary/5 rounded-full" />
+              <div className="absolute bottom-12 left-1/3 w-2 h-2 rounded-full bg-secondary/20" />
+              <div className="absolute bottom-24 left-[38%] w-1.5 h-1.5 rounded-full bg-secondary/15" />
+              <div className="absolute top-16 left-[45%] w-1 h-1 rounded-full bg-primary/20" />
+              {/* Subtle grid lines */}
+              <div className="absolute top-0 left-[20%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.03] to-transparent" />
+              <div className="absolute top-0 left-[40%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.02] to-transparent hidden lg:block" />
+            </div>
+
+            {/* Text side */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+              className="lg:w-1/2 p-12 md:p-20 flex flex-col justify-center gap-8 relative z-[2]"
+            >
+              <motion.h2
+                variants={fadeUp}
+                className="font-[var(--font-manrope)] text-sm uppercase tracking-widest text-secondary font-bold"
+              >
                 Drogaria VH Sintra
-              </h2>
-              <h3 className="font-[var(--font-manrope)] text-4xl md:text-5xl font-black text-on-surface leading-tight tracking-tighter">
+              </motion.h2>
+              <motion.h3
+                variants={fadeUp}
+                className="font-[var(--font-manrope)] text-4xl md:text-5xl font-black text-on-surface leading-[1.15] tracking-tighter"
+              >
                 Precisa de materiais? Visite a Drogaria VH em Sintra.
-              </h3>
-              <p className="text-xl text-on-surface-variant">
+              </motion.h3>
+              <motion.p variants={fadeUp} className="text-xl text-on-surface-variant leading-[1.65]">
                 Ferramentas profissionais, tintas de alta gama e tudo para a sua
                 obra num só lugar.
-              </p>
-              <div>
+              </motion.p>
+              <motion.div variants={fadeUp}>
                 <a
                   href="https://wa.me/351926010809"
                   target="_blank"
@@ -209,18 +365,28 @@ export default function Home() {
                   Ver Loja
                   <span className="material-symbols-outlined">storefront</span>
                 </a>
-              </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Image side with parallax-like offset */}
+            <div className="lg:w-1/2 relative min-h-[400px] overflow-hidden">
+              <motion.div
+                initial={{ scale: 1.08 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src="/drogaria/drogaria-loja.jpg"
+                  alt="Drogaria VH Sintra"
+                  fill
+                  className="object-cover"
+                />
+              </motion.div>
+              <div className="absolute inset-0 bg-gradient-to-r from-surface-container-high via-surface-container-high/40 to-transparent hidden lg:block" />
             </div>
-            <div className="lg:w-1/2 relative min-h-[400px]">
-              <Image
-                src="/drogaria/drogaria-loja.jpg"
-                alt="Drogaria VH Sintra"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-surface-container-high via-transparent to-transparent hidden lg:block" />
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
