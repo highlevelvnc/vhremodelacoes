@@ -115,7 +115,7 @@ export default function ServicosPage() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-[var(--font-manrope)] text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-on-surface mb-8 leading-[1.05]"
+            className="font-[var(--font-manrope)] text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-on-surface mb-8 leading-[1.1]"
           >
             Nossos Serviços Especializados
           </motion.h1>
@@ -234,7 +234,7 @@ export default function ServicosPage() {
       <section className="bg-surface-container-highest py-24 md:py-32 section-divider">
         <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 text-center">
           {[
-            { num: "15+", label: "Anos de Experiência", icon: "calendar_month" },
+            { num: "30+", label: "Anos de Experiência", icon: "calendar_month" },
             { num: "500+", label: "Projetos Concluídos", icon: "task_alt" },
             { num: "100%", label: "Garantia de Qualidade", icon: "verified" },
             { num: "24/7", label: "Suporte Técnico", icon: "headset_mic" },
@@ -274,7 +274,7 @@ export default function ServicosPage() {
           href="https://wa.me/351936569642"
           target="_blank"
           rel="noopener noreferrer"
-          className="riveted-btn px-6 py-3.5 rounded-full text-sm font-bold font-[var(--font-label)] uppercase tracking-widest text-on-secondary flex items-center gap-3 shadow-[0_8px_30px_rgba(138,1,16,0.5)]"
+          className="riveted-btn px-6 py-3.5 rounded-full text-sm font-bold font-[var(--font-label)] uppercase tracking-widest text-on-secondary flex items-center gap-3 shadow-2xl shadow-[0_8px_30px_rgba(138,1,16,0.5)]"
         >
           <span className="material-symbols-outlined text-lg">chat</span>
           Pedir Orçamento

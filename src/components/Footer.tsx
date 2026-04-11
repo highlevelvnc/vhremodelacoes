@@ -1,4 +1,25 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const columnVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
 
 export function Footer() {
   return (
@@ -13,9 +34,15 @@ export function Footer() {
       />
 
       <div className="pt-20 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 md:px-12 w-full max-w-7xl mx-auto mb-20">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 md:px-12 w-full max-w-7xl mx-auto mb-20"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {/* Brand column */}
-          <div className="flex flex-col gap-6">
+          <motion.div className="flex flex-col gap-6" variants={columnVariants}>
             <div className="text-xl font-bold text-primary uppercase tracking-widest font-[var(--font-manrope)]">
               Vínculos Harmoniosos
             </div>
@@ -50,11 +77,11 @@ export function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Navigation column */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-xs tracking-widest mb-2">
+          <motion.div className="flex flex-col gap-4" variants={columnVariants}>
+            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
               Navegação
             </h4>
             <div className="flex flex-col gap-3">
@@ -83,11 +110,11 @@ export function Footer() {
                 Contacto
               </Link>
             </div>
-          </div>
+          </motion.div>
 
           {/* Information column */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-xs tracking-widest mb-2">
+          <motion.div className="flex flex-col gap-4" variants={columnVariants}>
+            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
               Informação
             </h4>
             <div className="flex flex-col gap-3">
@@ -101,11 +128,11 @@ export function Footer() {
                 Drogaria: 926 010 809
               </span>
             </div>
-          </div>
+          </motion.div>
 
           {/* CTA column */}
-          <div className="flex flex-col gap-4">
-            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-xs tracking-widest mb-2">
+          <motion.div className="flex flex-col gap-4" variants={columnVariants}>
+            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
               Orçamento
             </h4>
             <a
@@ -122,8 +149,8 @@ export function Footer() {
             <p className="text-on-surface/30 text-xs text-center">
               Resposta rápida garantida
             </p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Bottom bar */}
         <div

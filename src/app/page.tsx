@@ -56,7 +56,7 @@ export default function Home() {
             className="object-cover opacity-40 grayscale-[0.2]"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-surface/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-surface/10" />
           {/* Subtle radial accent */}
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,158,148,0.06)_0%,transparent_60%)]" />
         </div>
@@ -82,7 +82,7 @@ export default function Home() {
           {/* Heading */}
           <motion.h1
             variants={fadeUp}
-            className="font-[var(--font-manrope)] font-black text-5xl md:text-8xl leading-[1.05] mb-8 max-w-5xl tracking-tighter text-on-surface"
+            className="font-[var(--font-manrope)] font-black text-5xl md:text-8xl leading-[1.1] mb-8 max-w-5xl tracking-tighter text-on-surface"
           >
             Construímos o Seu{" "}
             <span className="text-gradient">Futuro</span>, Remodelamos o Seu
@@ -142,7 +142,7 @@ export default function Home() {
       <section className="bg-surface-container-low py-24 relative border-t border-white/5 section-divider">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16">
           {[
-            { num: "10+", label: "Anos de Experiência" },
+            { num: "30+", label: "Anos de Experiência" },
             { num: "500+", label: "Obras Concluídas" },
             { num: "100%", label: "Clientes Satisfeitos" },
           ].map((s, i) => (
@@ -151,7 +151,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+              transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
               className="flex items-start gap-6"
             >
               {/* Decorative icon circle */}
@@ -211,7 +211,7 @@ export default function Home() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                transition={{ delay: i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
                 className="glow-card bg-surface-container-high p-10 rounded-lg group hover:bg-surface-container-highest transition-all duration-400 flex flex-col gap-6 relative"
               >
                 {/* Numbered badge */}
@@ -286,10 +286,11 @@ export default function Home() {
               <img
                 src={src}
                 alt={`Obra VH ${i + 1}`}
+                loading="lazy"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               {/* Hover overlay with zoom icon */}
-              <div className="absolute inset-0 bg-surface/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-surface/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                 <span className="material-symbols-outlined text-on-surface text-3xl scale-75 group-hover:scale-100 transition-transform duration-300">
                   zoom_in
                 </span>
@@ -374,7 +375,7 @@ export default function Home() {
                 initial={{ scale: 1.08 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] as const }}
+                transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] as const }}
                 className="absolute inset-0"
               >
                 <Image

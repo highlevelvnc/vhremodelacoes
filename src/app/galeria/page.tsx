@@ -109,7 +109,7 @@ export default function GaleriaPage() {
 
         <motion.h1
           variants={fadeUp}
-          className="font-[var(--font-manrope)] text-5xl md:text-7xl font-extrabold text-on-surface mb-6 tracking-tighter max-w-4xl leading-[1.05]"
+          className="font-[var(--font-manrope)] text-5xl md:text-7xl font-extrabold text-on-surface mb-6 tracking-tighter max-w-4xl leading-[1.1]"
         >
           Nosso Portfólio de Obra
         </motion.h1>
@@ -134,7 +134,7 @@ export default function GaleriaPage() {
             }}
             className={`px-6 py-2.5 rounded-full font-[var(--font-label)] font-medium text-sm transition-all duration-300 whitespace-nowrap flex items-center gap-2 hover:scale-[1.03] ${
               active === cat
-                ? "bg-secondary text-on-secondary font-bold shadow-[0_4px_20px_rgba(138,1,16,0.25)]"
+                ? "bg-secondary text-on-secondary font-bold shadow-lg shadow-[0_4px_20px_rgba(138,1,16,0.25)]"
                 : "bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest ghost-border"
             }`}
           >
@@ -189,8 +189,8 @@ export default function GaleriaPage() {
                   />
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
-                    <span className="text-secondary text-[10px] font-bold uppercase tracking-[0.2em] mb-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
+                    <span className="text-secondary text-xs font-bold uppercase tracking-[0.2em] mb-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                       {img.cat}
                     </span>
                     <h3 className="text-lg font-[var(--font-manrope)] font-bold text-on-surface translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
@@ -220,6 +220,9 @@ export default function GaleriaPage() {
             <span>Ver mais projetos</span>
             <span className="material-symbols-outlined text-lg">expand_more</span>
           </button>
+          <span className="material-symbols-outlined text-on-surface-variant/40 text-2xl animate-bounce">
+            keyboard_arrow_down
+          </span>
           <p className="text-sm text-on-surface-variant/60 font-[var(--font-label)]">
             Exibindo {visible.length} de {filtered.length} obras
           </p>
@@ -238,7 +241,7 @@ export default function GaleriaPage() {
             onClick={closeLightbox}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-surface/90 backdrop-blur-md" />
+            <div className="absolute inset-0 bg-surface/90 backdrop-blur-xl" />
 
             {/* Content */}
             <motion.div
