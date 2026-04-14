@@ -19,17 +19,27 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "VH Remodelações - Construção Civil e Remodelações em Portugal",
+  title: "VH Remodelações — Construção Civil e Remodelações em Portugal",
   description:
     "Especialistas em remodelações completas, pinturas, fachadas e construção civil em toda Portugal. Orçamento grátis via WhatsApp.",
   keywords: [
-    "remodelações",
-    "construção civil",
-    "pinturas",
-    "fachadas",
-    "sintra",
-    "portugal",
+    "remodelações", "construção civil", "pinturas", "fachadas", "sintra", "portugal",
+    "remodelação de interiores", "reabilitação de fachadas", "construção",
   ],
+  openGraph: {
+    title: "VH Remodelações — Construção Civil e Remodelações em Portugal",
+    description: "Especialistas em remodelações completas, pinturas, fachadas e construção civil. Orçamento grátis via WhatsApp.",
+    type: "website",
+    locale: "pt_PT",
+    siteName: "VH Remodelações",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({

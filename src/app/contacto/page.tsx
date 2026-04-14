@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -17,6 +18,32 @@ const fadeUp = {
 };
 
 export default function ContactoPage() {
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [assunto, setAssunto] = useState("Orçamento de Obra");
+  const [mensagem, setMensagem] = useState("");
+  const [enviado, setEnviado] = useState(false);
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    const text = `*Novo Pedido via Site — VH Remodelações*
+
+*Nome:* ${nome}
+*Email:* ${email}
+*Assunto:* ${assunto}
+
+*Mensagem:*
+${mensagem}`;
+
+    const url = `https://wa.me/351936569642?text=${encodeURIComponent(text)}`;
+    window.open(url, "_blank");
+
+    setEnviado(true);
+    setTimeout(() => {
+      setEnviado(false);
+    }, 3000);
+  }
   return (
     <div className="pt-32 pb-24 noise-overlay">
       <div className="max-w-screen-2xl mx-auto px-8">
@@ -230,7 +257,7 @@ export default function ContactoPage() {
               <p className="text-on-surface-variant text-sm mb-8 leading-[1.65]">
                 Preencha o formulário e entraremos em contacto em breve.
               </p>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 {/* Nome */}
                 <div className="relative group">
                   <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
@@ -240,6 +267,9 @@ export default function ContactoPage() {
                     className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 placeholder:text-on-surface-variant/40"
                     placeholder="Seu nome"
                     type="text"
+                    required
+                    value={nome}
+                    onChange={(e) => setNome(e.target.value)}
                   />
                 </div>
 
@@ -252,6 +282,9 @@ export default function ContactoPage() {
                     className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 placeholder:text-on-surface-variant/40"
                     placeholder="email@exemplo.pt"
                     type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
 
@@ -260,7 +293,11 @@ export default function ContactoPage() {
                   <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
                     Assunto
                   </label>
-                  <select className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 appearance-none cursor-pointer">
+                  <select
+                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 appearance-none cursor-pointer"
+                    value={assunto}
+                    onChange={(e) => setAssunto(e.target.value)}
+                  >
                     <option>Orçamento de Obra</option>
                     <option>Pedido de Material (Drogaria)</option>
                     <option>Outros Assuntos</option>
@@ -276,15 +313,28 @@ export default function ContactoPage() {
                     className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 resize-none placeholder:text-on-surface-variant/40"
                     placeholder="Como podemos ajudar?"
                     rows={5}
+                    required
+                    value={mensagem}
+                    onChange={(e) => setMensagem(e.target.value)}
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full riveted-btn py-4 text-on-secondary font-[var(--font-manrope)] font-bold uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-transform flex items-center justify-center gap-2"
+                  disabled={enviado}
+                  className="w-full riveted-btn py-4 text-on-secondary font-[var(--font-manrope)] font-bold uppercase tracking-widest text-sm rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-transform flex items-center justify-center gap-2 disabled:opacity-80 disabled:hover:scale-100"
                 >
-                  Enviar Pedido
-                  <span className="material-symbols-outlined text-base">send</span>
+                  {enviado ? (
+                    <>
+                      Mensagem Enviada!
+                      <span className="material-symbols-outlined text-base">check_circle</span>
+                    </>
+                  ) : (
+                    <>
+                      Enviar Pedido
+                      <span className="material-symbols-outlined text-base">send</span>
+                    </>
+                  )}
                 </button>
               </form>
             </section>

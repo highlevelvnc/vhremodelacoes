@@ -241,6 +241,79 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══════════════════════ TESTIMONIALS ═══════════════════════ */}
+      <section className="py-32 bg-surface-container-low relative noise-overlay">
+        <div className="max-w-7xl mx-auto px-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+            className="mb-20 text-center"
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="font-[var(--font-manrope)] text-sm uppercase tracking-[0.3em] text-secondary font-bold mb-4"
+            >
+              Testemunhos
+            </motion.h2>
+            <motion.p
+              variants={fadeUp}
+              className="font-[var(--font-manrope)] text-4xl md:text-5xl font-extrabold text-on-surface tracking-tighter leading-[1.15]"
+            >
+              O Que Dizem os Nossos Clientes
+            </motion.p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Carlos Mendes",
+                role: "Proprietário, Lisboa",
+                text: "A VH Remodelações transformou completamente o nosso apartamento. Profissionalismo exemplar do início ao fim. Recomendo sem hesitar.",
+                rating: 5,
+              },
+              {
+                name: "Ana Sofia Ribeiro",
+                role: "Arquitecta, Sintra",
+                text: "Trabalho com a equipa da VH há mais de 5 anos. A qualidade de execução e o cumprimento de prazos são impecáveis.",
+                rating: 5,
+              },
+              {
+                name: "Miguel Ferreira",
+                role: "Gestor de Condomínio, Cascais",
+                text: "Contratámos a VH para a reabilitação da fachada do nosso edifício. O resultado superou todas as expectativas. Obra entregue no prazo e sem surpresas.",
+                rating: 5,
+              },
+            ].map((t, i) => (
+              <motion.div
+                key={t.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                className="bento-card p-10 flex flex-col gap-6"
+              >
+                <div className="flex gap-1">
+                  {Array.from({ length: t.rating }).map((_, s) => (
+                    <span key={s} className="material-symbols-outlined text-secondary text-xl">
+                      star
+                    </span>
+                  ))}
+                </div>
+                <p className="text-on-surface-variant italic leading-[1.7] flex-1">
+                  &ldquo;{t.text}&rdquo;
+                </p>
+                <div>
+                  <p className="font-[var(--font-manrope)] font-bold text-on-surface">{t.name}</p>
+                  <p className="text-sm text-secondary">{t.role}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════════════════ GALLERY PREVIEW ═══════════════════════ */}
       <section className="bg-surface-container-lowest py-32 overflow-hidden noise-overlay">
         <div className="max-w-7xl mx-auto px-8 mb-16 flex justify-between items-end">
