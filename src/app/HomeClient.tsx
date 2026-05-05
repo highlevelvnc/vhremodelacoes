@@ -86,9 +86,10 @@ export default function HomeClient() {
             className="object-cover opacity-40 grayscale-[0.2]"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/50 to-surface/10" />
-          {/* Subtle radial accent */}
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(255,158,148,0.06)_0%,transparent_60%)]" />
+          {/* Multi-layer cinematic overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-surface/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-surface/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,107,107,0.08),transparent_60%)] " />
           {/* Aurora ambient blobs */}
           <div className="aurora-blob aurora-blob-red w-[500px] h-[500px] -top-20 -right-40" />
           <div className="aurora-blob aurora-blob-blue w-[600px] h-[600px] -bottom-32 -left-20" />
@@ -103,7 +104,7 @@ export default function HomeClient() {
         >
           {/* Animated badge */}
           <motion.div variants={fadeUp} className="mb-8">
-            <span className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-surface-container-high/60 backdrop-blur-sm ghost-border text-sm font-[var(--font-label)] tracking-widest uppercase text-on-surface-variant">
+            <span className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-container-high/60 backdrop-blur-sm ghost-border text-sm font-[var(--font-label)] tracking-widest uppercase text-on-surface-variant">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary" />
@@ -115,10 +116,10 @@ export default function HomeClient() {
           {/* Heading */}
           <motion.h1
             variants={fadeUp}
-            className="font-[var(--font-manrope)] font-black text-5xl md:text-8xl leading-[1.1] mb-8 max-w-5xl tracking-tighter text-on-surface"
+            className="display-headline font-[var(--font-manrope)] font-black text-5xl md:text-8xl leading-[0.95] mb-8 max-w-5xl tracking-[-0.04em] text-on-surface"
           >
             Construímos o Seu{" "}
-            <span className="text-gradient">Futuro</span>, Remodelamos o Seu
+            <span className="accent-word">Futuro</span>, Remodelamos o Seu
             Presente
           </motion.h1>
 
@@ -137,14 +138,14 @@ export default function HomeClient() {
               href="https://wa.me/351936569642"
               target="_blank"
               rel="noopener noreferrer"
-              className="riveted-btn px-8 py-4 rounded-lg text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-on-secondary flex items-center justify-center gap-3"
+              className="riveted-btn px-8 py-4 rounded-2xl text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-on-secondary flex items-center justify-center gap-3"
             >
               <span className="material-symbols-outlined">chat</span>
               Orçamento via WhatsApp
             </a>
             <Link
               href="/galeria"
-              className="ghost-border px-8 py-4 rounded-lg text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-primary flex items-center justify-center gap-3 bg-surface-container-high/30 backdrop-blur-sm hover:bg-surface-container-high/60 hover:scale-[1.02] transition-all duration-300"
+              className="ghost-border px-8 py-4 rounded-2xl text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-primary flex items-center justify-center gap-3 bg-surface-container-high/30 backdrop-blur-sm hover:bg-surface-container-high/60 hover:scale-[1.02] transition-all duration-300"
             >
               Nossos Projetos
             </Link>
@@ -185,7 +186,7 @@ export default function HomeClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-              className="bento-card p-8"
+              className="premium-card p-8 md:p-10 rounded-2xl"
             >
               <span className="material-symbols-outlined text-secondary/40 text-3xl mb-2">{s.icon}</span>
               <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-primary leading-[1.1]">
@@ -200,7 +201,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ SERVICES ═══════════════════════ */}
-      <section className="py-32 bg-surface">
+      <section className="py-24 md:py-32 bg-surface">
         <div className="max-w-7xl mx-auto px-8">
           {/* Section header */}
           <motion.div
@@ -213,7 +214,7 @@ export default function HomeClient() {
             <div className="max-w-2xl">
               <motion.h2
                 variants={fadeUp}
-                className="font-[var(--font-manrope)] text-sm uppercase tracking-[0.3em] text-secondary font-bold mb-4"
+                className="eyebrow mb-4"
               >
                 Os Nossos Serviços
               </motion.h2>
@@ -272,7 +273,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ TESTIMONIALS ═══════════════════════ */}
-      <section className="py-32 bg-surface-container-low relative noise-overlay">
+      <section className="py-24 md:py-32 bg-surface-container-low relative noise-overlay">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial="hidden"
@@ -283,7 +284,7 @@ export default function HomeClient() {
           >
             <motion.h2
               variants={fadeUp}
-              className="font-[var(--font-manrope)] text-sm uppercase tracking-[0.3em] text-secondary font-bold mb-4"
+              className="eyebrow mb-4"
             >
               Testemunhos
             </motion.h2>
@@ -345,7 +346,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ GALLERY PREVIEW ═══════════════════════ */}
-      <section className="bg-surface-container-lowest py-32 overflow-hidden noise-overlay">
+      <section className="bg-surface-container-lowest py-24 md:py-32 overflow-hidden noise-overlay">
         <div className="max-w-7xl mx-auto px-8 mb-16 flex justify-between items-end">
           <motion.div
             initial="hidden"
@@ -408,7 +409,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ FAQ ═══════════════════════ */}
-      <section className="py-32 bg-surface-container-low relative noise-overlay">
+      <section className="py-24 md:py-32 bg-surface-container-low relative noise-overlay">
         <div className="max-w-5xl mx-auto px-8">
           <motion.div
             initial="hidden"
@@ -419,7 +420,7 @@ export default function HomeClient() {
           >
             <motion.h2
               variants={fadeUp}
-              className="font-[var(--font-manrope)] text-sm uppercase tracking-[0.3em] text-secondary font-bold mb-4"
+              className="eyebrow mb-4"
             >
               Perguntas Frequentes
             </motion.h2>
@@ -544,7 +545,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ DROGARIA BANNER ═══════════════════════ */}
-      <section className="py-32 bg-surface relative">
+      <section className="py-24 md:py-32 bg-surface relative">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial="hidden"

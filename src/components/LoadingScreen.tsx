@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -90,47 +91,21 @@ export function LoadingScreen() {
 
           {/* Center content */}
           <div className="relative flex flex-col items-center gap-10">
-            {/* Logo mark */}
+            {/* Brand logo — animated reveal */}
             <motion.div
-              className="relative"
+              className="relative flex items-center justify-center"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              {/* Rotating ring */}
-              <motion.div
-                className="absolute -inset-4 rounded-full border border-secondary/20"
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              >
-                <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-secondary" />
-              </motion.div>
-
-              {/* VH Monogram */}
-              <div className="w-20 h-20 rounded-xl bg-gradient-to-br from-secondary via-secondary-container to-secondary-container flex items-center justify-center shadow-2xl">
-                <span className="text-white font-[var(--font-manrope)] font-black text-3xl tracking-tighter">
-                  VH
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Brand name with stagger */}
-            <motion.div
-              className="flex flex-col items-center gap-2"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <span className="font-[var(--font-manrope)] font-black text-2xl tracking-tighter text-on-surface">
-                VH Remodelações
-              </span>
-              <span className="text-on-surface-variant text-xs tracking-[0.25em] uppercase font-medium">
-                Construção &amp; Remodelação
-              </span>
+              <Image
+                src="/vhremodelacoes.png"
+                alt="VH Remodelações"
+                width={320}
+                height={90}
+                priority
+                className="h-20 md:h-24 w-auto brightness-0 invert opacity-95 relative z-10"
+              />
             </motion.div>
 
             {/* Progress bar */}

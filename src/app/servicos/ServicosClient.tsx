@@ -92,8 +92,10 @@ export default function ServicosClient() {
             className="object-cover brightness-[0.35]"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-surface/10" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_80%,rgba(255,158,148,0.06)_0%,transparent_60%)]" />
+          {/* Multi-layer cinematic overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-surface/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-surface/80 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,107,107,0.08),transparent_60%)]" />
         </div>
 
         <motion.div
@@ -169,19 +171,19 @@ export default function ServicosClient() {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
                 className={`relative group ${!isEven ? "order-1 md:order-2" : ""}`}
               >
-                <div className="relative overflow-hidden rounded-lg">
+                <div className="premium-card overflow-hidden rounded-2xl relative">
                   <Image
                     src={svc.image}
                     alt={svc.title}
                     width={800}
                     height={500}
-                    className="w-full h-[500px] object-cover rounded-lg shadow-2xl hover:scale-[1.02] transition-transform duration-700"
+                    className="w-full h-[500px] object-cover rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-700"
                   />
                   {/* Subtle overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 </div>
                 {/* Decorative corner accent */}
-                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-r-2 border-b-2 border-secondary/20 rounded-br-lg pointer-events-none" />
+                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-r-2 border-b-2 border-secondary/20 rounded-br-2xl pointer-events-none" />
               </motion.div>
 
               {/* Text */}
@@ -197,14 +199,14 @@ export default function ServicosClient() {
                   <span className="font-[var(--font-manrope)] text-5xl font-black text-on-surface-variant/10 leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="font-[var(--font-label)] text-secondary font-bold tracking-[0.2em] uppercase text-[11px]">
+                  <span className="eyebrow">
                     {svc.tag}
                   </span>
                 </motion.div>
 
                 <motion.h2
                   variants={fadeUp}
-                  className="font-[var(--font-manrope)] text-4xl md:text-5xl font-bold tracking-tighter text-primary leading-[1.15]"
+                  className="display-headline font-[var(--font-manrope)] text-3xl md:text-4xl font-bold tracking-tighter text-primary leading-[1.15]"
                 >
                   {svc.title}
                 </motion.h2>

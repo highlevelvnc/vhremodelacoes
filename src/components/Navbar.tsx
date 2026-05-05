@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -41,12 +42,17 @@ export function Navbar() {
       <div className="flex justify-between items-center px-8 py-4 w-full max-w-screen-2xl mx-auto">
         <Link
           href="/"
-          className="text-2xl font-black text-on-surface tracking-tighter font-[var(--font-manrope)] transition-transform duration-300 hover:scale-[1.03] origin-left"
+          className="flex items-center transition-transform duration-300 hover:scale-[1.02] origin-left"
+          aria-label="VH Remodelações - Início"
         >
-          <span className="inline-flex items-center gap-2">
-            <span className="w-2 h-2 rounded-sm bg-secondary inline-block" />
-            VH Remodelações
-          </span>
+          <Image
+            src="/vhremodelacoes.png"
+            alt="VH Remodelações"
+            width={170}
+            height={48}
+            priority
+            className="h-9 md:h-10 w-auto brightness-0 invert opacity-95"
+          />
         </Link>
 
         {/* Desktop */}

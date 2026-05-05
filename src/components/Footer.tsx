@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const containerVariants = {
@@ -43,9 +44,13 @@ export function Footer() {
         >
           {/* Brand column */}
           <motion.div className="flex flex-col gap-6" variants={columnVariants}>
-            <div className="text-xl font-bold text-primary uppercase tracking-widest font-[var(--font-manrope)]">
-              VH Remodelações
-            </div>
+            <Image
+              src="/vhremodelacoes.png"
+              alt="VH Remodelações"
+              width={200}
+              height={56}
+              className="h-12 w-auto brightness-0 invert opacity-90 mb-2"
+            />
             <p className="text-on-surface/50 text-sm leading-relaxed">
               Especialistas em remodelações, construção civil e reabilitação de fachadas. Mais de 30 anos de excelência em toda Portugal.
             </p>
