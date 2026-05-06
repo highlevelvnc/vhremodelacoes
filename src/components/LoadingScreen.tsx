@@ -16,11 +16,11 @@ export function LoadingScreen() {
           clearInterval(interval);
           return 100;
         }
-        // Accelerating progress curve
-        const increment = prev < 50 ? 4 : prev < 80 ? 3 : 2;
+        // Accelerating progress curve — slightly slower for breathing room
+        const increment = prev < 50 ? 3 : prev < 85 ? 2 : 1;
         return Math.min(prev + increment, 100);
       });
-    }, 25);
+    }, 30);
 
     return () => clearInterval(interval);
   }, []);
@@ -128,7 +128,7 @@ export function LoadingScreen() {
                 />
               </div>
               <motion.span
-                className="text-[#5a6478] text-[10px] font-mono tracking-wider"
+                className="text-on-surface-variant text-[10px] font-mono tracking-wider"
                 animate={{ opacity: progress === 100 ? 0 : 1 }}
               >
                 {progress}%

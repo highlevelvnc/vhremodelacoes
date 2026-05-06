@@ -182,7 +182,7 @@ export default function ServicosClient() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#14213d]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 </div>
                 {/* Decorative corner accent */}
-                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-r-2 border-b-2 border-[#c8102e]/30 rounded-br-2xl pointer-events-none" />
+                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-r-2 border-b-2 border-secondary-container/30 rounded-br-2xl pointer-events-none" />
               </motion.div>
 
               {/* Text */}
@@ -232,7 +232,7 @@ export default function ServicosClient() {
       })}
 
       {/* ═══════════════════════ TRUST STATS ═══════════════════════ */}
-      <section className="bg-[#14213d] text-white py-24 md:py-32">
+      <section className="bg-primary text-white py-24 md:py-32">
         <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 text-center">
           {[
             { num: "30+", label: "Anos de Experiência", icon: "calendar_month" },
@@ -248,12 +248,12 @@ export default function ServicosClient() {
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
               className="flex flex-col items-center gap-4"
             >
-              <div className="w-12 h-12 rounded-full bg-[#e63946]/15 flex items-center justify-center mb-2">
-                <span className="material-symbols-outlined text-[#e63946] text-xl">
+              <div className="w-12 h-12 rounded-full bg-secondary/15 flex items-center justify-center mb-2">
+                <span className="material-symbols-outlined text-secondary text-xl">
                   {s.icon}
                 </span>
               </div>
-              <span className="font-[var(--font-manrope)] text-5xl md:text-7xl font-black text-[#e63946] leading-[1.1]">
+              <span className="font-[var(--font-manrope)] text-5xl md:text-7xl font-black text-secondary leading-[1.1]">
                 {s.num}
               </span>
               <span className="font-[var(--font-label)] text-xs text-white/70 uppercase tracking-widest">

@@ -65,8 +65,8 @@ export function Navbar() {
                 href={link.href}
                 className={`animated-underline pb-1 transition-colors duration-300 ${
                   active
-                    ? "text-[#c8102e]"
-                    : "text-[#5a6478] hover:text-[#14213d]"
+                    ? "text-secondary-container"
+                    : "text-on-surface-variant hover:text-primary"
                 }`}
                 style={
                   active
@@ -86,12 +86,12 @@ export function Navbar() {
               </Link>
             );
           })}
-          <span className="text-[#5a6478]/40">|</span>
+          <span className="text-on-surface-variant/40">|</span>
           <a
             href="https://drogariavh.pt"
             target="_blank"
             rel="noopener noreferrer"
-            className="animated-underline text-[#5a6478] hover:text-[#14213d] transition-colors duration-300 text-sm pb-1"
+            className="animated-underline text-on-surface-variant hover:text-primary transition-colors duration-300 text-sm pb-1"
           >
             Drogaria VH &rarr;
           </a>
@@ -153,7 +153,7 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-[#5a6478] hover:text-[#14213d] transition-colors duration-300 py-3 border-b border-[rgba(20,33,61,0.06)] block"
+                    className="text-on-surface-variant hover:text-primary transition-colors duration-300 py-3 border-b border-[rgba(20,33,61,0.06)] block"
                   >
                     {link.label}
                   </Link>
@@ -171,7 +171,7 @@ export function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
-                  className="text-[#5a6478] hover:text-[#14213d] transition-colors duration-300 py-3 text-sm block"
+                  className="text-on-surface-variant hover:text-primary transition-colors duration-300 py-3 text-sm block"
                 >
                   Drogaria VH &rarr;
                 </a>

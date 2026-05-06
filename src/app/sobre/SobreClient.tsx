@@ -75,7 +75,7 @@ export default function SobreClient() {
             </motion.p>
             <motion.div variants={fadeUp} className="flex items-center gap-4 mt-8">
               <div className="h-1 w-24 bg-secondary rounded-full" />
-              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fafafa] border border-[rgba(20,33,61,0.08)] text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low border border-[rgba(20,33,61,0.08)] text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
                 <span className="material-symbols-outlined text-secondary text-sm">history</span>
                 Desde 1995
               </span>
@@ -85,7 +85,7 @@ export default function SobreClient() {
       </section>
 
       {/* ═══════════════════════ COMPANY STORY ═══════════════════════ */}
-      <section className="py-24 bg-[#fafafa] relative section-divider">
+      <section className="py-24 bg-surface-container-low relative section-divider">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial="hidden"
@@ -113,7 +113,7 @@ export default function SobreClient() {
               className="bento-card p-12 flex flex-col gap-8"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-full bg-[#c8102e]/10 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-secondary-container/10 flex items-center justify-center">
                   <span className="material-symbols-outlined text-secondary text-2xl">apartment</span>
                 </div>
                 <h4 className="font-[var(--font-manrope)] font-bold text-2xl tracking-tighter">
@@ -125,7 +125,7 @@ export default function SobreClient() {
               </p>
               <div className="h-px bg-[rgba(20,33,61,0.08)]" />
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#c8102e]/10 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-secondary-container/10 flex items-center justify-center">
                   <span className="material-symbols-outlined text-secondary text-2xl">groups</span>
                 </div>
                 <h4 className="font-[var(--font-manrope)] font-bold text-2xl tracking-tighter">
@@ -174,7 +174,7 @@ export default function SobreClient() {
                 transition={{ delay: i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
                 className="premium-card p-10 flex flex-col gap-6 group transition-all duration-400"
               >
-                <div className="w-14 h-14 rounded-xl bg-[#c8102e]/8 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-xl bg-secondary-container/8 flex items-center justify-center">
                   <span className="material-symbols-outlined text-secondary text-2xl">{v.icon}</span>
                 </div>
                 <h3 className="font-[var(--font-manrope)] text-2xl font-bold tracking-tight">{v.title}</h3>
@@ -186,7 +186,7 @@ export default function SobreClient() {
       </section>
 
       {/* ═══════════════════════ STATS ═══════════════════════ */}
-      <section className="bg-[#14213d] text-white py-24 relative">
+      <section className="bg-primary text-white py-24 relative">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16">
           {[
             { num: "30+", label: "Anos de Experiência", icon: "calendar_month" },
@@ -201,8 +201,8 @@ export default function SobreClient() {
               transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
               className="p-8 flex flex-col"
             >
-              <span className="material-symbols-outlined text-[#e63946]/70 text-3xl mb-2">{s.icon}</span>
-              <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-[#e63946] leading-[1.1]">
+              <span className="material-symbols-outlined text-secondary/70 text-3xl mb-2">{s.icon}</span>
+              <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-secondary leading-[1.1]">
                 {s.num}
               </span>
               <span className="font-[var(--font-label)] text-sm uppercase tracking-widest text-white/70 mt-1">

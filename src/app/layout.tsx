@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFAB } from "@/components/WhatsAppFAB";
 import { LoadingScreen } from "@/components/LoadingScreen";
+import { CookieBanner } from "@/components/CookieBanner";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -93,6 +94,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppFAB />
+        <CookieBanner />
       </body>
     </html>
   );

@@ -90,7 +90,7 @@ export default function PrivacidadeClient() {
           </motion.h1>
           <motion.div variants={fadeUp} className="flex items-center gap-4 mt-8">
             <div className="h-1 w-24 bg-secondary rounded-full" />
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fafafa] border border-[rgba(20,33,61,0.08)] text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low border border-[rgba(20,33,61,0.08)] text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
               <span className="material-symbols-outlined text-secondary text-sm">verified_user</span>
               RGPD
             </span>
@@ -120,7 +120,7 @@ export default function PrivacidadeClient() {
               className="glow-card bento-card p-8 md:p-10 rounded-xl group transition-colors duration-500"
             >
               <div className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-full bg-[#c8102e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c8102e]/15 transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-secondary-container/10 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary-container/15 transition-colors duration-300">
                   <span className="material-symbols-outlined text-secondary text-xl">
                     {section.icon}
                   </span>

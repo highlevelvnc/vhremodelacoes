@@ -74,7 +74,7 @@ ${mensagem}`;
           <motion.div variants={fadeUp} className="flex items-center gap-4 mt-8">
             <div className="h-1 w-24 bg-secondary rounded-full" />
             {/* Trust badge */}
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fafafa] border border-[rgba(20,33,61,0.08)] text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low border border-[rgba(20,33,61,0.08)] text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
               <span className="material-symbols-outlined text-secondary text-sm">schedule</span>
               Resposta em 24h
             </span>
@@ -93,7 +93,7 @@ ${mensagem}`;
           >
             <div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 rounded-full bg-[#c8102e]/10 flex items-center justify-center group-hover:bg-[#c8102e]/15 transition-colors duration-300">
+                <div className="w-14 h-14 rounded-full bg-secondary-container/10 flex items-center justify-center group-hover:bg-secondary-container/15 transition-colors duration-300">
                   <span className="material-symbols-outlined text-secondary text-2xl">
                     construction
                   </span>
@@ -171,7 +171,7 @@ ${mensagem}`;
           >
             <div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 rounded-full bg-[#c8102e]/10 flex items-center justify-center group-hover:bg-[#c8102e]/15 transition-colors duration-300">
+                <div className="w-14 h-14 rounded-full bg-secondary-container/10 flex items-center justify-center group-hover:bg-secondary-container/15 transition-colors duration-300">
                   <span className="material-symbols-outlined text-secondary text-2xl">
                     storefront
                   </span>
@@ -260,11 +260,12 @@ ${mensagem}`;
               <form className="space-y-6" onSubmit={handleSubmit}>
                 {/* Nome */}
                 <div className="relative group">
-                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
+                  <label htmlFor="contact-nome" className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
                     Nome Completo
                   </label>
                   <input
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all"
+                    id="contact-nome"
+                    className="w-full bg-surface-container-low border border-[rgba(20,33,61,0.1)] text-primary p-4 rounded-xl placeholder:text-on-surface-variant focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all"
                     placeholder="Seu nome"
                     type="text"
                     required
@@ -275,11 +276,12 @@ ${mensagem}`;
 
                 {/* Email */}
                 <div className="relative group">
-                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
+                  <label htmlFor="contact-email" className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
                     Email
                   </label>
                   <input
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all"
+                    id="contact-email"
+                    className="w-full bg-surface-container-low border border-[rgba(20,33,61,0.1)] text-primary p-4 rounded-xl placeholder:text-on-surface-variant focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all"
                     placeholder="email@exemplo.pt"
                     type="email"
                     required
@@ -290,11 +292,12 @@ ${mensagem}`;
 
                 {/* Assunto */}
                 <div className="relative group">
-                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
+                  <label htmlFor="contact-assunto" className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
                     Assunto
                   </label>
                   <select
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all appearance-none cursor-pointer"
+                    id="contact-assunto"
+                    className="w-full bg-surface-container-low border border-[rgba(20,33,61,0.1)] text-primary p-4 rounded-xl focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all appearance-none cursor-pointer"
                     value={assunto}
                     onChange={(e) => setAssunto(e.target.value)}
                   >
@@ -306,11 +309,12 @@ ${mensagem}`;
 
                 {/* Mensagem */}
                 <div className="relative group">
-                  <label className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
+                  <label htmlFor="contact-mensagem" className="block text-xs font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2 group-focus-within:text-primary transition-colors duration-200">
                     Mensagem
                   </label>
                   <textarea
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all resize-none"
+                    id="contact-mensagem"
+                    className="w-full bg-surface-container-low border border-[rgba(20,33,61,0.1)] text-primary p-4 rounded-xl placeholder:text-on-surface-variant focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all resize-none"
                     placeholder="Como podemos ajudar?"
                     rows={5}
                     required

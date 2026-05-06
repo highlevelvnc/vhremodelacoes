@@ -24,7 +24,7 @@ const columnVariants = {
 
 export function Footer() {
   return (
-    <footer className="bg-[#0f1c34] text-white w-full relative noise-overlay">
+    <footer className="bg-on-surface text-white w-full relative noise-overlay">
       {/* Gradient separator at top */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
@@ -57,11 +57,11 @@ export function Footer() {
             {/* Social icons */}
             <div className="flex items-center gap-4 mt-2">
               <a
-                href="https://www.instagram.com/"
+                href="https://www.instagram.com/vhremodelacoes"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/40 hover:text-secondary transition-colors duration-300"
-                aria-label="Instagram"
+                aria-label="Instagram VH Remodelações"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -70,11 +70,11 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/vhremodelacoes"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/40 hover:text-secondary transition-colors duration-300"
-                aria-label="Facebook"
+                aria-label="Facebook VH Remodelações"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />

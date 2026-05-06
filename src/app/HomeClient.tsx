@@ -71,7 +71,7 @@ const fadeScale = {
 const statIcons = ["engineering", "task_alt", "sentiment_very_satisfied"];
 
 export default function HomeClient() {
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <>
@@ -100,10 +100,10 @@ export default function HomeClient() {
         >
           {/* Animated badge */}
           <motion.div variants={fadeUp} className="mb-8">
-            <span className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white text-[#c8102e] border border-[#c8102e]/20 shadow-md text-sm font-[var(--font-label)] tracking-widest uppercase">
+            <span className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white text-secondary-container border border-secondary-container/20 shadow-md text-sm font-[var(--font-label)] tracking-widest uppercase">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e63946] opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#e63946]" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary" />
               </span>
               Excelência em Construção desde 1995
             </span>
@@ -168,7 +168,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ STATS ═══════════════════════ */}
-      <section className="bg-[#fafafa] py-24 relative section-divider">
+      <section className="bg-surface-container-low py-24 relative section-divider">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16">
           {[
             { num: "30+", label: "Anos de Experiência", icon: "calendar_month" },
@@ -183,8 +183,8 @@ export default function HomeClient() {
               transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
               className="premium-card p-8 md:p-10 rounded-2xl flex flex-col"
             >
-              <span className="material-symbols-outlined text-[#e63946]/60 text-3xl mb-2">{s.icon}</span>
-              <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-[#c8102e] leading-[1.1]">
+              <span className="material-symbols-outlined text-secondary/60 text-3xl mb-2">{s.icon}</span>
+              <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-secondary-container leading-[1.1]">
                 {s.num}
               </span>
               <span className="font-[var(--font-label)] text-sm uppercase tracking-widest text-on-surface-variant mt-1">
@@ -242,7 +242,7 @@ export default function HomeClient() {
                 </span>
 
                 {/* Icon with colored circle */}
-                <div className="w-14 h-14 rounded-xl bg-[#c8102e]/8 flex items-center justify-center mb-2">
+                <div className="w-14 h-14 rounded-xl bg-secondary-container/8 flex items-center justify-center mb-2">
                   <span className="material-symbols-outlined text-secondary text-2xl">{svc.icon}</span>
                 </div>
 
@@ -268,7 +268,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ GARANTIAS ═══════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#fafafa] relative">
+      <section className="py-24 md:py-32 bg-surface-container-low relative">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial="hidden"
@@ -325,7 +325,7 @@ export default function HomeClient() {
                 transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
                 className="bento-card p-8 md:p-10 flex flex-col gap-5"
               >
-                <div className="w-12 h-12 rounded-xl bg-[#c8102e]/10 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-secondary-container/10 flex items-center justify-center">
                   <span className="material-symbols-outlined text-secondary text-2xl">
                     {g.icon}
                   </span>
@@ -406,7 +406,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ FAQ ═══════════════════════ */}
-      <section className="py-24 md:py-32 bg-[#fafafa] relative">
+      <section className="py-24 md:py-32 bg-surface-container-low relative">
         <div className="max-w-5xl mx-auto px-8">
           <motion.div
             initial="hidden"
@@ -451,7 +451,7 @@ export default function HomeClient() {
                   }}
                   className={`bento-card overflow-hidden transition-colors duration-300 ${
                     isOpen
-                      ? "ring-1 ring-[#c8102e]/30"
+                      ? "ring-1 ring-secondary-container/30"
                       : ""
                   }`}
                 >
@@ -465,13 +465,13 @@ export default function HomeClient() {
                       <span
                         className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
                           isOpen
-                            ? "bg-[#c8102e]/15"
-                            : "bg-[#c8102e]/8 group-hover:bg-[#c8102e]/12"
+                            ? "bg-secondary-container/15"
+                            : "bg-secondary-container/8 group-hover:bg-secondary-container/12"
                         }`}
                       >
                         <span
                           className={`material-symbols-outlined text-lg transition-colors duration-300 ${
-                            isOpen ? "text-[#c8102e]" : "text-[#e63946]"
+                            isOpen ? "text-secondary-container" : "text-secondary"
                           }`}
                         >
                           help
@@ -479,7 +479,7 @@ export default function HomeClient() {
                       </span>
                       <span
                         className={`font-[var(--font-manrope)] font-bold text-lg md:text-xl tracking-tight leading-snug transition-colors duration-300 ${
-                          isOpen ? "text-[#c8102e]" : "text-on-surface"
+                          isOpen ? "text-secondary-container" : "text-on-surface"
                         }`}
                       >
                         {faq.q}
@@ -489,7 +489,7 @@ export default function HomeClient() {
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
                       className={`material-symbols-outlined text-2xl flex-shrink-0 transition-colors duration-300 ${
-                        isOpen ? "text-[#c8102e]" : "text-on-surface-variant/60"
+                        isOpen ? "text-secondary-container" : "text-on-surface-variant/60"
                       }`}
                     >
                       expand_more
@@ -542,7 +542,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ DROGARIA BANNER ═══════════════════════ */}
-      <section className="bg-[#14213d] text-white py-24 md:py-32 relative overflow-hidden">
+      <section className="bg-primary text-white py-24 md:py-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial="hidden"
@@ -553,10 +553,10 @@ export default function HomeClient() {
           >
             {/* Decorative geometric pattern */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-[1]">
-              <div className="absolute -top-24 -left-24 w-48 h-48 border border-[#e63946]/20 rounded-full" />
-              <div className="absolute -top-12 -left-12 w-48 h-48 border border-[#e63946]/10 rounded-full" />
-              <div className="absolute bottom-12 left-1/3 w-2 h-2 rounded-full bg-[#e63946]/40" />
-              <div className="absolute bottom-24 left-[38%] w-1.5 h-1.5 rounded-full bg-[#e63946]/30" />
+              <div className="absolute -top-24 -left-24 w-48 h-48 border border-secondary/20 rounded-full" />
+              <div className="absolute -top-12 -left-12 w-48 h-48 border border-secondary/10 rounded-full" />
+              <div className="absolute bottom-12 left-1/3 w-2 h-2 rounded-full bg-secondary/40" />
+              <div className="absolute bottom-24 left-[38%] w-1.5 h-1.5 rounded-full bg-secondary/30" />
               <div className="absolute top-16 left-[45%] w-1 h-1 rounded-full bg-white/20" />
               {/* Subtle grid lines */}
               <div className="absolute top-0 left-[20%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
@@ -573,7 +573,7 @@ export default function HomeClient() {
             >
               <motion.h2
                 variants={fadeUp}
-                className="font-[var(--font-manrope)] text-sm uppercase tracking-widest text-[#e63946] font-bold"
+                className="font-[var(--font-manrope)] text-sm uppercase tracking-widest text-secondary font-bold"
               >
                 A Nossa Loja em Sintra
               </motion.h2>

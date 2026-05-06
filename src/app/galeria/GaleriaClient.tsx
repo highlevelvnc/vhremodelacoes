@@ -88,7 +88,7 @@ export default function GaleriaClient() {
   }, []);
 
   return (
-    <div className="bg-[#fafafa] pt-32 pb-24 px-6 md:px-12">
+    <div className="bg-surface-container-low pt-32 pb-24 px-6 md:px-12">
      <div className="max-w-screen-2xl mx-auto">
       {/* ═══════════════════════ HEADER ═══════════════════════ */}
       <motion.header
@@ -134,7 +134,7 @@ export default function GaleriaClient() {
             className={`px-6 py-2.5 rounded-full font-[var(--font-label)] font-medium text-sm transition-all duration-300 whitespace-nowrap flex items-center gap-2 hover:scale-[1.03] ${
               active === cat
                 ? "bg-secondary text-on-secondary font-bold shadow-lg shadow-[0_4px_20px_rgba(200,16,46,0.25)] ring-1 ring-secondary/30"
-                : "bg-white text-[#5a6478] hover:text-[#14213d] border border-[rgba(20,33,61,0.1)] hover:border-[rgba(20,33,61,0.2)]"
+                : "bg-white text-on-surface-variant hover:text-primary border border-[rgba(20,33,61,0.1)] hover:border-[rgba(20,33,61,0.2)]"
             }`}
           >
             {cat}
@@ -142,7 +142,7 @@ export default function GaleriaClient() {
               className={`text-[10px] font-bold px-2 py-0.5 rounded-full leading-none ${
                 active === cat
                   ? "bg-white/20 text-on-secondary"
-                  : "bg-[rgba(20,33,61,0.06)] text-[#5a6478]"
+                  : "bg-[rgba(20,33,61,0.06)] text-on-surface-variant"
               }`}
             >
               {categoryCounts[cat]}
@@ -152,6 +152,7 @@ export default function GaleriaClient() {
       </div>
 
       {/* ═══════════════════════ MASONRY GRID ═══════════════════════ */}
+      <h2 className="sr-only">Galeria de Projetos</h2>
       <div className="masonry-grid">
         <AnimatePresence mode="popLayout">
           {visible.map((img, i) => {
@@ -189,7 +190,7 @@ export default function GaleriaClient() {
 
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f1c34]/85 via-[#0f1c34]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
-                    <span className="text-[#e63946] text-xs font-bold uppercase tracking-[0.2em] mb-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <span className="text-secondary text-xs font-bold uppercase tracking-[0.2em] mb-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                       {img.cat}
                     </span>
                     <h3 className="text-lg font-[var(--font-manrope)] font-bold text-white translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
@@ -240,7 +241,7 @@ export default function GaleriaClient() {
             onClick={closeLightbox}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-[#0f1c34]/85 backdrop-blur-2xl" />
+            <div className="absolute inset-0 bg-on-surface/85 backdrop-blur-2xl" />
 
             {/* Content */}
             <motion.div
@@ -268,12 +269,12 @@ export default function GaleriaClient() {
 
               {/* Caption */}
               <div className="mt-4 text-center">
-                <span className="text-[#e63946] text-[10px] font-bold uppercase tracking-[0.2em] block mb-1">
+                <span className="text-secondary text-[10px] font-bold uppercase tracking-[0.2em] block mb-1">
                   {lightbox.cat}
                 </span>
-                <h3 className="font-[var(--font-manrope)] font-bold text-lg text-white">
+                <h2 className="font-[var(--font-manrope)] font-bold text-lg text-white">
                   {lightbox.title}
-                </h3>
+                </h2>
               </div>
             </motion.div>
           </motion.div>
