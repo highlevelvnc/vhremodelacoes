@@ -264,7 +264,7 @@ ${mensagem}`;
                     Nome Completo
                   </label>
                   <input
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/60 focus:border-secondary focus:outline-none transition-all"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all"
                     placeholder="Seu nome"
                     type="text"
                     required
@@ -279,7 +279,7 @@ ${mensagem}`;
                     Email
                   </label>
                   <input
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/60 focus:border-secondary focus:outline-none transition-all"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all"
                     placeholder="email@exemplo.pt"
                     type="email"
                     required
@@ -294,7 +294,7 @@ ${mensagem}`;
                     Assunto
                   </label>
                   <select
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl focus:ring-2 focus:ring-secondary/60 focus:border-secondary focus:outline-none transition-all appearance-none cursor-pointer"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all appearance-none cursor-pointer"
                     value={assunto}
                     onChange={(e) => setAssunto(e.target.value)}
                   >
@@ -310,7 +310,7 @@ ${mensagem}`;
                     Mensagem
                   </label>
                   <textarea
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/60 focus:border-secondary focus:outline-none transition-all resize-none"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary focus:border-secondary focus:outline-none transition-all resize-none"
                     placeholder="Como podemos ajudar?"
                     rows={5}
                     required

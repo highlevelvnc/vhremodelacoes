@@ -462,6 +462,17 @@ img {
   );
 }
 
+/* Retail/store hero — let photo breathe on top, build white toward bottom for text */
+.hero-overlay-store {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 35%,
+    rgba(255, 255, 255, 0.85) 75%,
+    rgba(255, 255, 255, 0.96) 100%
+  );
+}
+
 /* ═══════════════════════════════════════════════════════════
    MASONRY GRID — Gallery
    ═══════════════════════════════════════════════════════════ */

@@ -114,9 +114,8 @@ export default function HomeClient() {
             variants={fadeUp}
             className="display-headline font-[var(--font-manrope)] font-black text-5xl md:text-8xl leading-[0.95] mb-8 max-w-5xl tracking-[-0.04em] text-on-surface"
           >
-            Construímos o Seu{" "}
-            <span className="accent-word">Futuro</span>, Remodelamos o Seu
-            Presente
+            Remodelações <span className="accent-word">Premium</span> em Sintra
+            com Garantia de 5 Anos
           </motion.h1>
 
           {/* Subheading */}
@@ -124,8 +123,8 @@ export default function HomeClient() {
             variants={fadeUp}
             className="text-lg md:text-xl text-on-surface-variant max-w-xl mb-12 leading-[1.65]"
           >
-            Especialistas em remodelações completas, pinturas e construção civil
-            em toda Portugal. Elevamos espaços a obras de arte arquitetónicas.
+            Visita técnica gratuita em 24h. Orçamento sem compromisso.
+            30 anos a cumprir prazos com alvará e seguro de obra.
           </motion.p>
 
           {/* CTA buttons */}
@@ -268,7 +267,7 @@ export default function HomeClient() {
         </div>
       </section>
 
-      {/* ═══════════════════════ TESTIMONIALS ═══════════════════════ */}
+      {/* ═══════════════════════ GARANTIAS ═══════════════════════ */}
       <section className="py-24 md:py-32 bg-[#fafafa] relative">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
@@ -278,63 +277,65 @@ export default function HomeClient() {
             variants={staggerContainer}
             className="mb-20 text-center"
           >
-            <motion.h2
-              variants={fadeUp}
-              className="eyebrow mb-4"
-            >
-              Testemunhos
+            <motion.h2 variants={fadeUp} className="eyebrow mb-4 justify-center">
+              Garantias
             </motion.h2>
             <motion.p
               variants={fadeUp}
               className="font-[var(--font-manrope)] text-4xl md:text-5xl font-extrabold text-on-surface tracking-tighter leading-[1.15]"
             >
-              O Que Dizem os Nossos Clientes
+              Porque Confiar na VH Remodelações
+            </motion.p>
+            <motion.p
+              variants={fadeUp}
+              className="mt-6 text-on-surface-variant max-w-2xl mx-auto leading-[1.65]"
+            >
+              Não vendemos promessas. Vendemos compromissos por escrito.
             </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                name: "Carlos Mendes",
-                role: "Proprietário, Lisboa",
-                text: "A VH Remodelações transformou completamente o nosso apartamento. Profissionalismo exemplar do início ao fim. Recomendo sem hesitar.",
-                rating: 5,
+                icon: "verified_user",
+                title: "Garantia de 5 Anos",
+                text: "Cobertura legal sobre elementos estruturais e 2 anos sobre acabamentos, conforme o Decreto-Lei n.º 67/2003.",
               },
               {
-                name: "Ana Sofia Ribeiro",
-                role: "Arquitecta, Sintra",
-                text: "Trabalho com a equipa da VH há mais de 5 anos. A qualidade de execução e o cumprimento de prazos são impecáveis.",
-                rating: 5,
+                icon: "schedule",
+                title: "Visita Técnica Gratuita",
+                text: "Resposta em 24h para agendar visita ao local. Diagnóstico e medições incluídos sem compromisso.",
               },
               {
-                name: "Miguel Ferreira",
-                role: "Gestor de Condomínio, Cascais",
-                text: "Contratámos a VH para a reabilitação da fachada do nosso edifício. O resultado superou todas as expectativas. Obra entregue no prazo e sem surpresas.",
-                rating: 5,
+                icon: "request_quote",
+                title: "Orçamento Detalhado",
+                text: "Sem letras pequenas. Cada material, mão-de-obra e prazo discriminado para tomar a decisão certa.",
               },
-            ].map((t, i) => (
+              {
+                icon: "engineering",
+                title: "Alvará e Seguro de Obra",
+                text: "Empresa licenciada com seguro de responsabilidade civil ativo. Cumprimento de prazos contratualizado.",
+              },
+            ].map((g, i) => (
               <motion.div
-                key={t.name}
+                key={g.title}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-                className="bento-card p-10 flex flex-col gap-6"
+                transition={{ delay: i * 0.12, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
+                className="bento-card p-8 md:p-10 flex flex-col gap-5"
               >
-                <div className="flex gap-1">
-                  {Array.from({ length: t.rating }).map((_, s) => (
-                    <span key={s} className="material-symbols-outlined text-secondary text-xl">
-                      star
-                    </span>
-                  ))}
+                <div className="w-12 h-12 rounded-xl bg-[#c8102e]/10 flex items-center justify-center">
+                  <span className="material-symbols-outlined text-secondary text-2xl">
+                    {g.icon}
+                  </span>
                 </div>
-                <p className="text-on-surface-variant italic leading-[1.7] flex-1">
-                  &ldquo;{t.text}&rdquo;
+                <h3 className="font-[var(--font-manrope)] font-bold text-on-surface text-xl tracking-tight leading-tight">
+                  {g.title}
+                </h3>
+                <p className="text-on-surface-variant leading-[1.7] text-sm">
+                  {g.text}
                 </p>
-                <div>
-                  <p className="font-[var(--font-manrope)] font-bold text-on-surface">{t.name}</p>
-                  <p className="text-sm text-secondary">{t.role}</p>
-                </div>
               </motion.div>
             ))}
           </div>

@@ -47,11 +47,6 @@ const localBusinessSchema = {
     { "@type": "City", name: "Cascais" },
     { "@type": "Country", name: "Portugal" },
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    reviewCount: "3",
-  },
 };
 
 const faqSchema = {
