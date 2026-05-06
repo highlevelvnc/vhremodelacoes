@@ -6,7 +6,7 @@ export function WhatsAppFAB() {
       href="https://wa.me/351936569642"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 riveted-btn w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform"
+      className="fixed bottom-6 right-6 z-50 riveted-btn w-16 h-16 rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(200,16,46,0.35)] hover:scale-110 transition-transform"
       aria-label="Contactar-nos via WhatsApp"
     >
       <svg

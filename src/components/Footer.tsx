@@ -24,13 +24,13 @@ const columnVariants = {
 
 export function Footer() {
   return (
-    <footer className="bg-surface-container-lowest w-full relative noise-overlay">
+    <footer className="bg-[#0f1c34] text-white w-full relative noise-overlay">
       {/* Gradient separator at top */}
       <div
         className="absolute top-0 left-0 right-0 h-px"
         style={{
           background:
-            "linear-gradient(90deg, transparent 5%, rgba(255, 158, 148, 0.15) 30%, rgba(185, 199, 228, 0.1) 70%, transparent 95%)",
+            "linear-gradient(90deg, transparent 5%, rgba(230, 57, 70, 0.4) 30%, rgba(255, 255, 255, 0.15) 70%, transparent 95%)",
         }}
       />
 
@@ -45,13 +45,13 @@ export function Footer() {
           {/* Brand column */}
           <motion.div className="flex flex-col gap-6" variants={columnVariants}>
             <Image
-              src="/vhremodelacoes.png"
+              src="/vhremodelacaologo.png"
               alt="VH Remodelações"
               width={200}
               height={56}
-              className="h-12 w-auto brightness-0 invert opacity-90 mb-2"
+              className="h-12 w-auto brightness-0 invert opacity-95 mb-2"
             />
-            <p className="text-on-surface/50 text-sm leading-relaxed">
+            <p className="text-white/50 text-sm leading-relaxed">
               Especialistas em remodelações, construção civil e reabilitação de fachadas. Mais de 30 anos de excelência em toda Portugal.
             </p>
             {/* Social icons */}
@@ -60,7 +60,7 @@ export function Footer() {
                 href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-on-surface/40 hover:text-secondary transition-colors duration-300"
+                className="text-white/40 hover:text-secondary transition-colors duration-300"
                 aria-label="Instagram"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -73,7 +73,7 @@ export function Footer() {
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-on-surface/40 hover:text-secondary transition-colors duration-300"
+                className="text-white/40 hover:text-secondary transition-colors duration-300"
                 aria-label="Facebook"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -85,31 +85,31 @@ export function Footer() {
 
           {/* Navigation column */}
           <motion.div className="flex flex-col gap-4" variants={columnVariants}>
-            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
+            <h4 className="text-white font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
               Navegação
             </h4>
             <div className="flex flex-col gap-3">
               <Link
                 href="/"
-                className="animated-underline text-on-surface/50 hover:text-secondary transition-all duration-300 text-sm w-fit"
+                className="animated-underline text-white/50 hover:text-secondary transition-all duration-300 text-sm w-fit"
               >
                 Remodelações
               </Link>
               <Link
                 href="/servicos"
-                className="animated-underline text-on-surface/50 hover:text-secondary transition-all duration-300 text-sm w-fit"
+                className="animated-underline text-white/50 hover:text-secondary transition-all duration-300 text-sm w-fit"
               >
                 Serviços
               </Link>
               <Link
                 href="/galeria"
-                className="animated-underline text-on-surface/50 hover:text-secondary transition-all duration-300 text-sm w-fit"
+                className="animated-underline text-white/50 hover:text-secondary transition-all duration-300 text-sm w-fit"
               >
                 Projetos
               </Link>
               <Link
                 href="/contacto"
-                className="animated-underline text-on-surface/50 hover:text-secondary transition-all duration-300 text-sm w-fit"
+                className="animated-underline text-white/50 hover:text-secondary transition-all duration-300 text-sm w-fit"
               >
                 Contacto
               </Link>
@@ -118,17 +118,17 @@ export function Footer() {
 
           {/* Information column */}
           <motion.div className="flex flex-col gap-4" variants={columnVariants}>
-            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
+            <h4 className="text-white font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
               Informação
             </h4>
             <div className="flex flex-col gap-3">
-              <span className="text-on-surface/50 text-sm">
+              <span className="text-white/50 text-sm">
                 Sintra, Portugal
               </span>
-              <span className="text-on-surface/50 text-sm">
+              <span className="text-white/50 text-sm">
                 Tel: 936 569 642
               </span>
-              <span className="text-on-surface/50 text-sm">
+              <span className="text-white/50 text-sm">
                 Drogaria: 926 010 809
               </span>
             </div>
@@ -136,7 +136,7 @@ export function Footer() {
 
           {/* CTA column */}
           <motion.div className="flex flex-col gap-4" variants={columnVariants}>
-            <h4 className="text-on-surface font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
+            <h4 className="text-white font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
               Orçamento
             </h4>
             <a
@@ -150,7 +150,7 @@ export function Footer() {
                 Orçamento Grátis
               </span>
             </a>
-            <p className="text-on-surface/30 text-xs text-center">
+            <p className="text-white/30 text-xs text-center">
               Resposta rápida garantida
             </p>
           </motion.div>
@@ -160,10 +160,10 @@ export function Footer() {
         <div
           className="max-w-7xl mx-auto px-8 md:px-12 pt-8 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4"
           style={{
-            borderTop: "1px solid rgba(185, 199, 228, 0.06)",
+            borderTop: "1px solid rgba(255, 255, 255, 0.06)",
           }}
         >
-          <span className="text-on-surface/40 text-sm">
+          <span className="text-white/40 text-sm">
             &copy; 2025 VH Remodelações - Construção &amp; Drogaria. Todos os
             direitos reservados.
           </span>

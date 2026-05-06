@@ -62,7 +62,7 @@ const sections = [
 
 export default function PrivacidadeClient() {
   return (
-    <div className="pt-32 pb-24 noise-overlay">
+    <div className="pt-32 pb-24">
       <div className="max-w-screen-2xl mx-auto px-8">
         {/* Header */}
         <motion.header
@@ -84,13 +84,13 @@ export default function PrivacidadeClient() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-[var(--font-manrope)] font-black text-5xl md:text-7xl text-on-surface max-w-4xl leading-[1.05] tracking-tighter"
+            className="display-headline text-5xl md:text-7xl max-w-4xl"
           >
             Política de Privacidade
           </motion.h1>
           <motion.div variants={fadeUp} className="flex items-center gap-4 mt-8">
             <div className="h-1 w-24 bg-secondary rounded-full" />
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high/60 ghost-border text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fafafa] border border-[rgba(20,33,61,0.08)] text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
               <span className="material-symbols-outlined text-secondary text-sm">verified_user</span>
               RGPD
             </span>
@@ -117,10 +117,10 @@ export default function PrivacidadeClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.06, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="glow-card bento-card p-8 md:p-10 rounded-xl ghost-border group hover:bg-surface-container transition-colors duration-500"
+              className="glow-card bento-card p-8 md:p-10 rounded-xl group transition-colors duration-500"
             >
               <div className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-full bg-secondary-container/20 flex items-center justify-center flex-shrink-0 group-hover:bg-secondary/20 transition-colors duration-300">
+                <div className="w-12 h-12 rounded-full bg-[#c8102e]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#c8102e]/15 transition-colors duration-300">
                   <span className="material-symbols-outlined text-secondary text-xl">
                     {section.icon}
                   </span>
@@ -147,7 +147,7 @@ export default function PrivacidadeClient() {
         >
           <Link
             href="/"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-lg font-[var(--font-label)] font-bold uppercase tracking-widest text-sm text-on-surface ghost-border hover:bg-surface-container-high transition-colors duration-300"
+            className="ghost-btn inline-flex items-center gap-3 px-8 py-4 rounded-lg font-[var(--font-label)] font-bold uppercase tracking-widest text-sm"
           >
             <span className="material-symbols-outlined text-lg">arrow_back</span>
             Voltar ao Início

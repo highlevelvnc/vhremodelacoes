@@ -76,8 +76,8 @@ export default function HomeClient() {
   return (
     <>
       {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden noise-overlay">
-        {/* Background image + dramatic gradient */}
+      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        {/* Background image + light editorial overlay */}
         <div className="absolute inset-0 z-0">
           <Image
             src="/fachadas/fachada-03.jpg"
@@ -86,13 +86,9 @@ export default function HomeClient() {
             className="object-cover opacity-40 grayscale-[0.2]"
             priority
           />
-          {/* Multi-layer cinematic overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-surface/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-surface/80 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,107,107,0.08),transparent_60%)] " />
-          {/* Aurora ambient blobs */}
-          <div className="aurora-blob aurora-blob-red w-[500px] h-[500px] -top-20 -right-40" />
-          <div className="aurora-blob aurora-blob-blue w-[600px] h-[600px] -bottom-32 -left-20" />
+          {/* Light theme overlays */}
+          <div className="absolute inset-0 hero-overlay-light" />
+          <div className="absolute inset-0 hero-overlay-side hidden md:block" />
         </div>
 
         {/* Hero content with staggered animation */}
@@ -104,10 +100,10 @@ export default function HomeClient() {
         >
           {/* Animated badge */}
           <motion.div variants={fadeUp} className="mb-8">
-            <span className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-surface-container-high/60 backdrop-blur-sm ghost-border text-sm font-[var(--font-label)] tracking-widest uppercase text-on-surface-variant">
+            <span className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white text-[#c8102e] border border-[#c8102e]/20 shadow-md text-sm font-[var(--font-label)] tracking-widest uppercase">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e63946] opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#e63946]" />
               </span>
               Excelência em Construção desde 1995
             </span>
@@ -145,7 +141,7 @@ export default function HomeClient() {
             </a>
             <Link
               href="/galeria"
-              className="ghost-border px-8 py-4 rounded-2xl text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-primary flex items-center justify-center gap-3 bg-surface-container-high/30 backdrop-blur-sm hover:bg-surface-container-high/60 hover:scale-[1.02] transition-all duration-300"
+              className="ghost-btn px-8 py-4 rounded-2xl text-base font-bold uppercase tracking-widest flex items-center justify-center gap-3"
             >
               Nossos Projetos
             </Link>
@@ -173,7 +169,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ STATS ═══════════════════════ */}
-      <section className="bg-surface-container-low py-24 relative border-t border-white/5 section-divider">
+      <section className="bg-[#fafafa] py-24 relative section-divider">
         <div className="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-16">
           {[
             { num: "30+", label: "Anos de Experiência", icon: "calendar_month" },
@@ -186,10 +182,10 @@ export default function HomeClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-              className="premium-card p-8 md:p-10 rounded-2xl"
+              className="premium-card p-8 md:p-10 rounded-2xl flex flex-col"
             >
-              <span className="material-symbols-outlined text-secondary/40 text-3xl mb-2">{s.icon}</span>
-              <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-primary leading-[1.1]">
+              <span className="material-symbols-outlined text-[#e63946]/60 text-3xl mb-2">{s.icon}</span>
+              <span className="text-5xl md:text-6xl font-[var(--font-manrope)] font-black text-[#c8102e] leading-[1.1]">
                 {s.num}
               </span>
               <span className="font-[var(--font-label)] text-sm uppercase tracking-widest text-on-surface-variant mt-1">
@@ -239,7 +235,7 @@ export default function HomeClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] as const }}
-                className="glow-card bento-card p-10 group hover:bg-surface-container-highest transition-all duration-400 flex flex-col gap-6 relative"
+                className="glow-card bento-card p-10 group transition-all duration-400 flex flex-col gap-6 relative"
               >
                 {/* Numbered badge */}
                 <span className="absolute top-6 right-6 font-[var(--font-manrope)] text-[11px] font-bold tracking-widest text-on-surface-variant/30">
@@ -247,7 +243,7 @@ export default function HomeClient() {
                 </span>
 
                 {/* Icon with colored circle */}
-                <div className="w-14 h-14 rounded-xl bg-secondary-container/15 flex items-center justify-center mb-2">
+                <div className="w-14 h-14 rounded-xl bg-[#c8102e]/8 flex items-center justify-center mb-2">
                   <span className="material-symbols-outlined text-secondary text-2xl">{svc.icon}</span>
                 </div>
 
@@ -273,7 +269,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ TESTIMONIALS ═══════════════════════ */}
-      <section className="py-24 md:py-32 bg-surface-container-low relative noise-overlay">
+      <section className="py-24 md:py-32 bg-[#fafafa] relative">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial="hidden"
@@ -346,7 +342,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ GALLERY PREVIEW ═══════════════════════ */}
-      <section className="bg-surface-container-lowest py-24 md:py-32 overflow-hidden noise-overlay">
+      <section className="bg-white py-24 md:py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 mb-16 flex justify-between items-end">
           <motion.div
             initial="hidden"
@@ -379,7 +375,7 @@ export default function HomeClient() {
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
-              className={`aspect-[3/4] bg-surface-container overflow-hidden relative group cursor-pointer ${i === 2 ? "lg:mt-12" : i === 4 ? "lg:mt-8" : ""}`}
+              className={`aspect-[3/4] bg-[#f5f5f7] overflow-hidden relative group cursor-pointer rounded-xl ${i === 2 ? "lg:mt-12" : i === 4 ? "lg:mt-8" : ""}`}
             >
               <img
                 src={src}
@@ -388,8 +384,8 @@ export default function HomeClient() {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
               />
               {/* Hover overlay with zoom icon */}
-              <div className="absolute inset-0 bg-surface/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
-                <span className="material-symbols-outlined text-on-surface text-3xl scale-75 group-hover:scale-100 transition-transform duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f1c34]/70 via-[#0f1c34]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <span className="material-symbols-outlined text-white text-3xl scale-75 group-hover:scale-100 transition-transform duration-300">
                   zoom_in
                 </span>
               </div>
@@ -409,7 +405,7 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ FAQ ═══════════════════════ */}
-      <section className="py-24 md:py-32 bg-surface-container-low relative noise-overlay">
+      <section className="py-24 md:py-32 bg-[#fafafa] relative">
         <div className="max-w-5xl mx-auto px-8">
           <motion.div
             initial="hidden"
@@ -452,10 +448,10 @@ export default function HomeClient() {
                     duration: 0.5,
                     ease: [0.22, 1, 0.36, 1] as const,
                   }}
-                  className={`bento-card overflow-hidden ghost-border transition-colors duration-300 ${
+                  className={`bento-card overflow-hidden transition-colors duration-300 ${
                     isOpen
-                      ? "bg-surface-container ring-1 ring-secondary/20"
-                      : "hover:bg-surface-container/60"
+                      ? "ring-1 ring-[#c8102e]/30"
+                      : ""
                   }`}
                 >
                   <button
@@ -468,13 +464,13 @@ export default function HomeClient() {
                       <span
                         className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
                           isOpen
-                            ? "bg-secondary/20"
-                            : "bg-secondary-container/10 group-hover:bg-secondary/15"
+                            ? "bg-[#c8102e]/15"
+                            : "bg-[#c8102e]/8 group-hover:bg-[#c8102e]/12"
                         }`}
                       >
                         <span
                           className={`material-symbols-outlined text-lg transition-colors duration-300 ${
-                            isOpen ? "text-secondary" : "text-secondary/70"
+                            isOpen ? "text-[#c8102e]" : "text-[#e63946]"
                           }`}
                         >
                           help
@@ -482,7 +478,7 @@ export default function HomeClient() {
                       </span>
                       <span
                         className={`font-[var(--font-manrope)] font-bold text-lg md:text-xl tracking-tight leading-snug transition-colors duration-300 ${
-                          isOpen ? "text-on-surface" : "text-on-surface/90"
+                          isOpen ? "text-[#c8102e]" : "text-on-surface"
                         }`}
                       >
                         {faq.q}
@@ -492,7 +488,7 @@ export default function HomeClient() {
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
                       className={`material-symbols-outlined text-2xl flex-shrink-0 transition-colors duration-300 ${
-                        isOpen ? "text-secondary" : "text-on-surface-variant/60"
+                        isOpen ? "text-[#c8102e]" : "text-on-surface-variant/60"
                       }`}
                     >
                       expand_more
@@ -545,25 +541,25 @@ export default function HomeClient() {
       </section>
 
       {/* ═══════════════════════ DROGARIA BANNER ═══════════════════════ */}
-      <section className="py-24 md:py-32 bg-surface relative">
+      <section className="bg-[#14213d] text-white py-24 md:py-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-8">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeScale}
-            className="relative bento-card overflow-hidden flex flex-col lg:flex-row"
+            className="relative rounded-2xl overflow-hidden flex flex-col lg:flex-row bg-white/5 border border-white/10 backdrop-blur-sm"
           >
             {/* Decorative geometric pattern */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden z-[1]">
-              <div className="absolute -top-24 -left-24 w-48 h-48 border border-secondary/10 rounded-full" />
-              <div className="absolute -top-12 -left-12 w-48 h-48 border border-secondary/5 rounded-full" />
-              <div className="absolute bottom-12 left-1/3 w-2 h-2 rounded-full bg-secondary/20" />
-              <div className="absolute bottom-24 left-[38%] w-1.5 h-1.5 rounded-full bg-secondary/15" />
-              <div className="absolute top-16 left-[45%] w-1 h-1 rounded-full bg-primary/20" />
+              <div className="absolute -top-24 -left-24 w-48 h-48 border border-[#e63946]/20 rounded-full" />
+              <div className="absolute -top-12 -left-12 w-48 h-48 border border-[#e63946]/10 rounded-full" />
+              <div className="absolute bottom-12 left-1/3 w-2 h-2 rounded-full bg-[#e63946]/40" />
+              <div className="absolute bottom-24 left-[38%] w-1.5 h-1.5 rounded-full bg-[#e63946]/30" />
+              <div className="absolute top-16 left-[45%] w-1 h-1 rounded-full bg-white/20" />
               {/* Subtle grid lines */}
-              <div className="absolute top-0 left-[20%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.03] to-transparent" />
-              <div className="absolute top-0 left-[40%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.02] to-transparent hidden lg:block" />
+              <div className="absolute top-0 left-[20%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.06] to-transparent" />
+              <div className="absolute top-0 left-[40%] w-px h-full bg-gradient-to-b from-transparent via-white/[0.04] to-transparent hidden lg:block" />
             </div>
 
             {/* Text side */}
@@ -576,17 +572,17 @@ export default function HomeClient() {
             >
               <motion.h2
                 variants={fadeUp}
-                className="font-[var(--font-manrope)] text-sm uppercase tracking-widest text-secondary font-bold"
+                className="font-[var(--font-manrope)] text-sm uppercase tracking-widest text-[#e63946] font-bold"
               >
                 A Nossa Loja em Sintra
               </motion.h2>
               <motion.h3
                 variants={fadeUp}
-                className="font-[var(--font-manrope)] text-4xl md:text-5xl font-black text-on-surface leading-[1.15] tracking-tighter"
+                className="font-[var(--font-manrope)] text-4xl md:text-5xl font-black text-white leading-[1.15] tracking-tighter"
               >
                 Precisa de materiais? Visite a Drogaria VH em Sintra.
               </motion.h3>
-              <motion.p variants={fadeUp} className="text-xl text-on-surface-variant leading-[1.65]">
+              <motion.p variants={fadeUp} className="text-xl text-white/75 leading-[1.65]">
                 Ferramentas profissionais, tintas de alta gama e tudo para a sua
                 obra num só lugar.
               </motion.p>
@@ -595,7 +591,7 @@ export default function HomeClient() {
                   href="https://wa.me/351926010809"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="riveted-btn px-10 py-5 rounded-lg text-lg font-bold font-[var(--font-label)] uppercase tracking-widest text-on-secondary inline-flex items-center gap-4"
+                  className="riveted-btn px-10 py-5 rounded-lg text-lg font-bold font-[var(--font-label)] uppercase tracking-widest inline-flex items-center gap-4"
                 >
                   Explorar Drogaria
                   <span className="material-symbols-outlined">storefront</span>
@@ -619,7 +615,7 @@ export default function HomeClient() {
                   className="object-cover"
                 />
               </motion.div>
-              <div className="absolute inset-0 bg-gradient-to-r from-surface-container-high via-surface-container-high/40 to-transparent hidden lg:block" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#14213d] via-[#14213d]/40 to-transparent hidden lg:block" />
             </div>
           </motion.div>
         </div>

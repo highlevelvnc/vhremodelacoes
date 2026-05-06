@@ -88,7 +88,8 @@ export default function GaleriaClient() {
   }, []);
 
   return (
-    <div className="pt-32 pb-24 px-6 md:px-12 max-w-screen-2xl mx-auto">
+    <div className="bg-[#fafafa] pt-32 pb-24 px-6 md:px-12">
+     <div className="max-w-screen-2xl mx-auto">
       {/* ═══════════════════════ HEADER ═══════════════════════ */}
       <motion.header
         initial="hidden"
@@ -109,7 +110,7 @@ export default function GaleriaClient() {
 
         <motion.h1
           variants={fadeUp}
-          className="font-[var(--font-manrope)] text-5xl md:text-7xl font-extrabold text-on-surface mb-6 tracking-tighter max-w-4xl leading-[1.1]"
+          className="display-headline text-5xl md:text-7xl mb-6 max-w-4xl"
         >
           Nosso Portfólio de Obra
         </motion.h1>
@@ -132,16 +133,16 @@ export default function GaleriaClient() {
             }}
             className={`px-6 py-2.5 rounded-full font-[var(--font-label)] font-medium text-sm transition-all duration-300 whitespace-nowrap flex items-center gap-2 hover:scale-[1.03] ${
               active === cat
-                ? "bg-secondary text-on-secondary font-bold shadow-lg shadow-[0_4px_20px_rgba(138,1,16,0.25)] ring-1 ring-secondary/20"
-                : "bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest ghost-border"
+                ? "bg-secondary text-on-secondary font-bold shadow-lg shadow-[0_4px_20px_rgba(200,16,46,0.25)] ring-1 ring-secondary/30"
+                : "bg-white text-[#5a6478] hover:text-[#14213d] border border-[rgba(20,33,61,0.1)] hover:border-[rgba(20,33,61,0.2)]"
             }`}
           >
             {cat}
             <span
               className={`text-[10px] font-bold px-2 py-0.5 rounded-full leading-none ${
                 active === cat
-                  ? "bg-on-secondary/20 text-on-secondary"
-                  : "bg-surface-container-highest text-on-surface-variant/70"
+                  ? "bg-white/20 text-on-secondary"
+                  : "bg-[rgba(20,33,61,0.06)] text-[#5a6478]"
               }`}
             >
               {categoryCounts[cat]}
@@ -167,7 +168,7 @@ export default function GaleriaClient() {
                 onClick={() => openLightbox(img)}
               >
                 <div
-                  className={`relative overflow-hidden rounded-2xl bg-surface-container-high ${img.aspect}`}
+                  className={`relative overflow-hidden rounded-2xl bg-[#f5f5f7] ${img.aspect}`}
                 >
                   {/* Featured ribbon */}
                   {isFeatured && (
@@ -187,16 +188,16 @@ export default function GaleriaClient() {
                   />
 
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
-                    <span className="text-secondary text-xs font-bold uppercase tracking-[0.2em] mb-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f1c34]/85 via-[#0f1c34]/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6">
+                    <span className="text-[#e63946] text-xs font-bold uppercase tracking-[0.2em] mb-2 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                       {img.cat}
                     </span>
-                    <h3 className="text-lg font-[var(--font-manrope)] font-bold text-on-surface translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
+                    <h3 className="text-lg font-[var(--font-manrope)] font-bold text-white translate-y-2 group-hover:translate-y-0 transition-transform duration-300 delay-75">
                       {img.title}
                     </h3>
                     {/* Zoom icon */}
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                      <span className="material-symbols-outlined text-on-surface/70 text-3xl scale-75 group-hover:scale-100 transition-transform duration-300">
+                      <span className="material-symbols-outlined text-white/80 text-3xl scale-75 group-hover:scale-100 transition-transform duration-300">
                         zoom_in
                       </span>
                     </div>
@@ -239,7 +240,7 @@ export default function GaleriaClient() {
             onClick={closeLightbox}
           >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-surface/80 backdrop-blur-2xl" />
+            <div className="absolute inset-0 bg-[#0f1c34]/85 backdrop-blur-2xl" />
 
             {/* Content */}
             <motion.div
@@ -253,7 +254,7 @@ export default function GaleriaClient() {
               {/* Close button */}
               <button
                 onClick={closeLightbox}
-                className="absolute -top-2 -right-2 md:top-4 md:right-4 z-20 w-10 h-10 rounded-full bg-surface-container-highest/80 backdrop-blur-sm flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all duration-200"
+                className="absolute -top-2 -right-2 md:top-4 md:right-4 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white/20 transition-all duration-200"
               >
                 <span className="material-symbols-outlined text-xl">close</span>
               </button>
@@ -267,10 +268,10 @@ export default function GaleriaClient() {
 
               {/* Caption */}
               <div className="mt-4 text-center">
-                <span className="text-secondary text-[10px] font-bold uppercase tracking-[0.2em] block mb-1">
+                <span className="text-[#e63946] text-[10px] font-bold uppercase tracking-[0.2em] block mb-1">
                   {lightbox.cat}
                 </span>
-                <h3 className="font-[var(--font-manrope)] font-bold text-lg text-on-surface">
+                <h3 className="font-[var(--font-manrope)] font-bold text-lg text-white">
                   {lightbox.title}
                 </h3>
               </div>
@@ -278,6 +279,7 @@ export default function GaleriaClient() {
           </motion.div>
         )}
       </AnimatePresence>
+     </div>
     </div>
   );
 }

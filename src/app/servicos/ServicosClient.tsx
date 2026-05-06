@@ -83,19 +83,18 @@ export default function ServicosClient() {
   return (
     <>
       {/* ═══════════════════════ HERO ═══════════════════════ */}
-      <section className="relative h-[75vh] min-h-[600px] flex items-center justify-center overflow-hidden noise-overlay">
+      <section className="relative h-[75vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/servicos/servico-05.jpg"
             alt="Serviços VH"
             fill
-            className="object-cover brightness-[0.35]"
+            className="object-cover opacity-50"
             priority
           />
-          {/* Multi-layer cinematic overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-surface/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-surface/80 via-transparent to-transparent" />
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,107,107,0.08),transparent_60%)]" />
+          {/* Light theme overlays */}
+          <div className="absolute inset-0 hero-overlay-light" />
+          <div className="absolute inset-0 hero-overlay-side hidden md:block" />
         </div>
 
         <motion.div
@@ -117,7 +116,7 @@ export default function ServicosClient() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-[var(--font-manrope)] text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter text-on-surface mb-8 leading-[1.1]"
+            className="display-headline text-5xl md:text-7xl lg:text-8xl mb-8"
           >
             Nossos Serviços Especializados
           </motion.h1>
@@ -177,13 +176,13 @@ export default function ServicosClient() {
                     alt={svc.title}
                     width={800}
                     height={500}
-                    className="w-full h-[500px] object-cover rounded-2xl shadow-2xl hover:scale-[1.02] transition-transform duration-700"
+                    className="w-full h-[500px] object-cover rounded-2xl hover:scale-[1.02] transition-transform duration-700"
                   />
                   {/* Subtle overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#14213d]/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl" />
                 </div>
                 {/* Decorative corner accent */}
-                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-r-2 border-b-2 border-secondary/20 rounded-br-2xl pointer-events-none" />
+                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-r-2 border-b-2 border-[#c8102e]/30 rounded-br-2xl pointer-events-none" />
               </motion.div>
 
               {/* Text */}
@@ -233,7 +232,7 @@ export default function ServicosClient() {
       })}
 
       {/* ═══════════════════════ TRUST STATS ═══════════════════════ */}
-      <section className="bg-surface-container-low noise-overlay py-24 md:py-32 section-divider">
+      <section className="bg-[#14213d] text-white py-24 md:py-32">
         <div className="max-w-screen-2xl mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16 text-center">
           {[
             { num: "30+", label: "Anos de Experiência", icon: "calendar_month" },
@@ -249,15 +248,15 @@ export default function ServicosClient() {
               transition={{ delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const }}
               className="flex flex-col items-center gap-4"
             >
-              <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-2">
-                <span className="material-symbols-outlined text-secondary text-xl">
+              <div className="w-12 h-12 rounded-full bg-[#e63946]/15 flex items-center justify-center mb-2">
+                <span className="material-symbols-outlined text-[#e63946] text-xl">
                   {s.icon}
                 </span>
               </div>
-              <span className="font-[var(--font-manrope)] text-5xl md:text-7xl font-black text-primary leading-[1.1]">
+              <span className="font-[var(--font-manrope)] text-5xl md:text-7xl font-black text-[#e63946] leading-[1.1]">
                 {s.num}
               </span>
-              <span className="font-[var(--font-label)] text-xs text-on-surface-variant uppercase tracking-widest">
+              <span className="font-[var(--font-label)] text-xs text-white/70 uppercase tracking-widest">
                 {s.label}
               </span>
             </motion.div>

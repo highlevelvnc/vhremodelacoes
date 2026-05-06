@@ -44,7 +44,7 @@ export function LoadingScreen() {
     <AnimatePresence>
       {loading && (
         <motion.div
-          className="fixed inset-0 z-[9999] flex items-center justify-center bg-surface"
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-white"
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
@@ -54,7 +54,7 @@ export function LoadingScreen() {
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
               style={{
                 background:
-                  "radial-gradient(circle, rgba(138,1,16,0.08) 0%, rgba(4,19,41,0) 70%)",
+                  "radial-gradient(circle, rgba(20,33,61,0.04) 0%, rgba(230,57,70,0.06) 50%, rgba(255,255,255,0) 70%)",
               }}
               animate={{
                 scale: [1, 1.2, 1],
@@ -70,7 +70,7 @@ export function LoadingScreen() {
             {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-1 h-1 rounded-full bg-secondary/30"
+                className="absolute w-1 h-1 rounded-full bg-[#e63946]/40"
                 style={{
                   left: `${20 + i * 12}%`,
                   top: `${30 + (i % 3) * 20}%`,
@@ -99,12 +99,12 @@ export function LoadingScreen() {
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
               <Image
-                src="/vhremodelacoes.png"
+                src="/vhremodelacaologo.png"
                 alt="VH Remodelações"
                 width={320}
                 height={90}
                 priority
-                className="h-20 md:h-24 w-auto brightness-0 invert opacity-95 relative z-10"
+                className="h-20 md:h-24 w-auto relative z-10"
               />
             </motion.div>
 
@@ -115,12 +115,12 @@ export function LoadingScreen() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              <div className="w-full h-[2px] bg-surface-container-high rounded-full overflow-hidden">
+              <div className="w-full h-[2px] bg-[#e7e7eb] rounded-full overflow-hidden">
                 <motion.div
                   className="h-full rounded-full"
                   style={{
                     background:
-                      "linear-gradient(90deg, #ff9e94, #c4132a, #8a0110)",
+                      "linear-gradient(90deg, #e63946, #c8102e, #e63946)",
                   }}
                   initial={{ width: "0%" }}
                   animate={{ width: `${progress}%` }}
@@ -128,7 +128,7 @@ export function LoadingScreen() {
                 />
               </div>
               <motion.span
-                className="text-on-surface-variant/50 text-[10px] font-mono tracking-wider"
+                className="text-[#5a6478] text-[10px] font-mono tracking-wider"
                 animate={{ opacity: progress === 100 ? 0 : 1 }}
               >
                 {progress}%
@@ -141,7 +141,7 @@ export function LoadingScreen() {
             className="absolute bottom-0 left-0 right-0 h-[1px]"
             style={{
               background:
-                "linear-gradient(90deg, transparent 0%, rgba(255,158,148,0.3) 50%, transparent 100%)",
+                "linear-gradient(90deg, transparent 0%, rgba(230,57,70,0.4) 50%, transparent 100%)",
             }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}

@@ -45,7 +45,7 @@ ${mensagem}`;
     }, 3000);
   }
   return (
-    <div className="pt-32 pb-24 noise-overlay">
+    <div className="pt-32 pb-24">
       <div className="max-w-screen-2xl mx-auto px-8">
         {/* ═══════════════════════ HEADER ═══════════════════════ */}
         <motion.header
@@ -67,14 +67,14 @@ ${mensagem}`;
 
           <motion.h1
             variants={fadeUp}
-            className="font-[var(--font-manrope)] font-black text-5xl md:text-7xl text-on-surface max-w-4xl leading-[1.05] tracking-tighter"
+            className="display-headline text-5xl md:text-7xl max-w-4xl"
           >
             Estamos prontos para ajudar no seu projeto
           </motion.h1>
           <motion.div variants={fadeUp} className="flex items-center gap-4 mt-8">
             <div className="h-1 w-24 bg-secondary rounded-full" />
             {/* Trust badge */}
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-high/60 ghost-border text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#fafafa] border border-[rgba(20,33,61,0.08)] text-xs font-[var(--font-label)] font-bold uppercase tracking-widest text-on-surface-variant">
               <span className="material-symbols-outlined text-secondary text-sm">schedule</span>
               Resposta em 24h
             </span>
@@ -93,7 +93,7 @@ ${mensagem}`;
           >
             <div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 rounded-full bg-secondary-container/20 flex items-center justify-center group-hover:bg-secondary/20 transition-colors duration-300">
+                <div className="w-14 h-14 rounded-full bg-[#c8102e]/10 flex items-center justify-center group-hover:bg-[#c8102e]/15 transition-colors duration-300">
                   <span className="material-symbols-outlined text-secondary text-2xl">
                     construction
                   </span>
@@ -171,7 +171,7 @@ ${mensagem}`;
           >
             <div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 rounded-full bg-secondary-container/20 flex items-center justify-center group-hover:bg-secondary/20 transition-colors duration-300">
+                <div className="w-14 h-14 rounded-full bg-[#c8102e]/10 flex items-center justify-center group-hover:bg-[#c8102e]/15 transition-colors duration-300">
                   <span className="material-symbols-outlined text-secondary text-2xl">
                     storefront
                   </span>
@@ -264,7 +264,7 @@ ${mensagem}`;
                     Nome Completo
                   </label>
                   <input
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 placeholder:text-on-surface-variant/40"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/30 focus:border-secondary focus:outline-none transition-all"
                     placeholder="Seu nome"
                     type="text"
                     required
@@ -279,7 +279,7 @@ ${mensagem}`;
                     Email
                   </label>
                   <input
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 placeholder:text-on-surface-variant/40"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/30 focus:border-secondary focus:outline-none transition-all"
                     placeholder="email@exemplo.pt"
                     type="email"
                     required
@@ -294,7 +294,7 @@ ${mensagem}`;
                     Assunto
                   </label>
                   <select
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 appearance-none cursor-pointer"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl focus:ring-2 focus:ring-secondary/30 focus:border-secondary focus:outline-none transition-all appearance-none cursor-pointer"
                     value={assunto}
                     onChange={(e) => setAssunto(e.target.value)}
                   >
@@ -310,7 +310,7 @@ ${mensagem}`;
                     Mensagem
                   </label>
                   <textarea
-                    className="w-full bg-surface-container-low border border-outline-variant/10 text-on-surface p-4 rounded-xl transition-all duration-300 focus:ring-2 focus:ring-secondary/40 focus:border-secondary/30 focus:outline-none focus:bg-surface-container hover:border-outline-variant/20 resize-none placeholder:text-on-surface-variant/40"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/30 focus:border-secondary focus:outline-none transition-all resize-none"
                     placeholder="Como podemos ajudar?"
                     rows={5}
                     required
@@ -360,7 +360,7 @@ ${mensagem}`;
               title="Localização VH em Sintra"
             />
             {/* Map overlay card */}
-            <div className="absolute bottom-6 left-6 right-6 bg-surface-container-highest/95 backdrop-blur-md p-6 rounded-xl ghost-border shadow-[0_8px_30px_rgba(1,14,36,0.4)]">
+            <div className="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-6 rounded-xl border border-[rgba(20,33,61,0.08)] shadow-[0_8px_30px_rgba(20,33,61,0.12)]">
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center flex-shrink-0">
                   <span className="material-symbols-outlined text-secondary text-lg">

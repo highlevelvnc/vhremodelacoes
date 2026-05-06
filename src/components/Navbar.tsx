@@ -46,12 +46,12 @@ export function Navbar() {
           aria-label="VH Remodelações - Início"
         >
           <Image
-            src="/vhremodelacoes.png"
+            src="/vhremodelacaologo.png"
             alt="VH Remodelações"
             width={170}
             height={48}
             priority
-            className="h-9 md:h-10 w-auto brightness-0 invert opacity-95"
+            className="h-9 md:h-10 w-auto"
           />
         </Link>
 
@@ -65,8 +65,8 @@ export function Navbar() {
                 href={link.href}
                 className={`animated-underline pb-1 transition-colors duration-300 ${
                   active
-                    ? "text-primary"
-                    : "text-on-surface/70 hover:text-on-surface"
+                    ? "text-[#c8102e]"
+                    : "text-[#5a6478] hover:text-[#14213d]"
                 }`}
                 style={
                   active
@@ -77,7 +77,7 @@ export function Navbar() {
                 <span
                   className={
                     active
-                      ? "relative border-b-2 border-secondary-container pb-[2px]"
+                      ? "relative border-b-2 border-secondary pb-[2px]"
                       : ""
                   }
                 >
@@ -116,7 +116,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.div
-            className="md:hidden bg-surface-container-low overflow-hidden"
+            className="md:hidden bg-white shadow-2xl overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -144,7 +144,7 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-on-surface/80 hover:text-on-surface transition-colors duration-300 py-3 border-b border-white/5 last:border-b-0 block"
+                    className="text-[#5a6478] hover:text-[#14213d] transition-colors duration-300 py-3 border-b border-[rgba(20,33,61,0.06)] last:border-b-0 block"
                   >
                     {link.label}
                   </Link>
