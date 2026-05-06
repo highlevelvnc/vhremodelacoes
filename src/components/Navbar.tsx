@@ -86,6 +86,15 @@ export function Navbar() {
               </Link>
             );
           })}
+          <span className="text-[#5a6478]/40">|</span>
+          <a
+            href="https://drogariavh.pt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="animated-underline text-[#5a6478] hover:text-[#14213d] transition-colors duration-300 text-sm pb-1"
+          >
+            Drogaria VH &rarr;
+          </a>
         </div>
 
         <div className="flex items-center gap-4">
@@ -144,12 +153,29 @@ export function Navbar() {
                   <Link
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-[#5a6478] hover:text-[#14213d] transition-colors duration-300 py-3 border-b border-[rgba(20,33,61,0.06)] last:border-b-0 block"
+                    className="text-[#5a6478] hover:text-[#14213d] transition-colors duration-300 py-3 border-b border-[rgba(20,33,61,0.06)] block"
                   >
                     {link.label}
                   </Link>
                 </motion.div>
               ))}
+              <motion.div
+                variants={{
+                  open: { opacity: 1, x: 0 },
+                  closed: { opacity: 0, x: -12 },
+                }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
+                <a
+                  href="https://drogariavh.pt"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setOpen(false)}
+                  className="text-[#5a6478] hover:text-[#14213d] transition-colors duration-300 py-3 text-sm block"
+                >
+                  Drogaria VH &rarr;
+                </a>
+              </motion.div>
               <motion.div
                 variants={{
                   open: { opacity: 1, y: 0 },

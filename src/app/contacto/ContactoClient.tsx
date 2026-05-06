@@ -264,7 +264,7 @@ ${mensagem}`;
                     Nome Completo
                   </label>
                   <input
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/30 focus:border-secondary focus:outline-none transition-all"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/60 focus:border-secondary focus:outline-none transition-all"
                     placeholder="Seu nome"
                     type="text"
                     required
@@ -279,7 +279,7 @@ ${mensagem}`;
                     Email
                   </label>
                   <input
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/30 focus:border-secondary focus:outline-none transition-all"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/60 focus:border-secondary focus:outline-none transition-all"
                     placeholder="email@exemplo.pt"
                     type="email"
                     required
@@ -294,7 +294,7 @@ ${mensagem}`;
                     Assunto
                   </label>
                   <select
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl focus:ring-2 focus:ring-secondary/30 focus:border-secondary focus:outline-none transition-all appearance-none cursor-pointer"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl focus:ring-2 focus:ring-secondary/60 focus:border-secondary focus:outline-none transition-all appearance-none cursor-pointer"
                     value={assunto}
                     onChange={(e) => setAssunto(e.target.value)}
                   >
@@ -310,7 +310,7 @@ ${mensagem}`;
                     Mensagem
                   </label>
                   <textarea
-                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/30 focus:border-secondary focus:outline-none transition-all resize-none"
+                    className="w-full bg-[#fafafa] border border-[rgba(20,33,61,0.1)] text-[#14213d] p-4 rounded-xl placeholder:text-[#5a6478] focus:ring-2 focus:ring-secondary/60 focus:border-secondary focus:outline-none transition-all resize-none"
                     placeholder="Como podemos ajudar?"
                     rows={5}
                     required
@@ -349,7 +349,7 @@ ${mensagem}`;
             className="lg:col-span-3 h-full min-h-[500px] relative rounded-xl overflow-hidden bento-card"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12440.36!2d-9.38!3d38.8!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1ec5c4b4b3b3b3%3A0x0!2sSintra!5e0!3m2!1spt-PT!2spt!4v1"
+              src="https://maps.google.com/maps?q=Av.+Dr.+%C3%81lvaro+de+Vasconcelos+8%2C+2710-420+Sintra%2C+Portugal&t=m&z=16&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               className="rounded-xl"

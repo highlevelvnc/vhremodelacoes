@@ -116,22 +116,45 @@ export function Footer() {
             </div>
           </motion.div>
 
-          {/* Information column */}
+          {/* Contactos column */}
           <motion.div className="flex flex-col gap-4" variants={columnVariants}>
             <h4 className="text-white font-bold font-[var(--font-manrope)] uppercase text-[11px] font-semibold tracking-[0.15em] mb-2">
-              Informação
+              Contactos
             </h4>
-            <div className="flex flex-col gap-3">
-              <span className="text-white/50 text-sm">
-                Sintra, Portugal
-              </span>
-              <span className="text-white/50 text-sm">
-                Tel: 936 569 642
-              </span>
-              <span className="text-white/50 text-sm">
-                Drogaria: 926 010 809
-              </span>
-            </div>
+            <ul className="space-y-3 text-sm">
+              <li className="flex items-start gap-2 text-white/60">
+                <span className="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">
+                  call
+                </span>
+                <a
+                  href="https://wa.me/351936569642"
+                  className="hover:text-secondary transition-colors duration-300"
+                >
+                  936 569 642
+                </a>
+              </li>
+              <li className="flex items-start gap-2 text-white/60">
+                <span className="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">
+                  storefront
+                </span>
+                <a
+                  href="https://wa.me/351926010809"
+                  className="hover:text-secondary transition-colors duration-300"
+                >
+                  926 010 809 · Drogaria
+                </a>
+              </li>
+              <li className="flex items-start gap-2 text-white/60">
+                <span className="material-symbols-outlined text-secondary text-base mt-0.5 shrink-0">
+                  location_on
+                </span>
+                <span className="leading-snug">
+                  Av. Dr. Álvaro de Vasconcelos 8
+                  <br />
+                  2710-420 Sintra
+                </span>
+              </li>
+            </ul>
           </motion.div>
 
           {/* CTA column */}
